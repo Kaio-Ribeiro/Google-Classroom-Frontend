@@ -9,8 +9,8 @@ body{
 }
 
 .title{
-  font-family: "Stay Home";
-  font-size: 50px;
+  font-size: 40px; 
+  font-weight: 100px;
   color: rgb(255,255,255);
 }
 
@@ -19,7 +19,6 @@ body{
   height: 400px;
   max-height: 500px;
   margin: 50px auto;
-
   border: 0 none;
 	border-radius: 3px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);

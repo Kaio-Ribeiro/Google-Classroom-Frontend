@@ -3,33 +3,35 @@ import '../styles/pages/login.css';
 
 function Login() {
     return (
-        <h1 class="title"> GOOGLE SALA DE AULA</h1>
+        <div>
+            <h1 className="title"> GOOGLE SALA DE AULA</h1>
 
-        <div class="login">
-            <div class="content-wraper">
-                <h1>Fazer Login</h1>
-                <h3>Use sua conta do Google</h3>
+            <div className="login">
+                <div className="content-wraper">
+                    <h1>Fazer Login</h1>
+                    <h3>Use sua conta do Google</h3>
 
-                <form>
-                    <div class="form-group">
-                        <input type="email" name="name" placeholder="Digite seu e-mail" />
-                    </div>
+                    <form>
+                        <div className="form-group">
+                            <input type="email" name="name" placeholder="Digite seu e-mail" />
+                        </div>
 
-                    <div class="form-group">
-                        <input type="password" name="name" placeholder="Digite sua senha" />
-                    </div>
+                        <div className="form-group">
+                            <input type="password" name="name" placeholder="Digite sua senha" />
+                        </div>
 
-                    <div class="viewpass">
-                        <label> <input type="checkbox" name="checkbox" value="value"/> Mostrar senha</label>
-                    </div>
+                        <div className="viewpass">
+                            <label> <input type="checkbox" name="checkbox" value="value"/> Mostrar senha</label>
+                        </div>
 
-                    <div class="create-cont"> 
-                        <a href="#">Criar conta</a>
-                    </div>
+                        <div className="create-cont"> 
+                            <a href="www.google.com">Criar conta</a>
+                        </div>
 
-                    <button class="btn-logar" type="button">Entrar</button>
-                    
-                </form>
+                        <button className="btn-logar" type="button">Entrar</button>
+                        
+                    </form>
+                </div>
             </div>
         </div>
     )

@@ -3,38 +3,40 @@ import '../styles/pages/register.css';
 
 function Login() {
     return (
-        <h1 class="title"> GOOGLE SALA DE AULA</h1>
+        <div>
+            <h1 className="title"> GOOGLE SALA DE AULA</h1>
 
-        <div class="register">
-            <div class="content-wraper">
-                <h1>Crie sua conta</h1>
-                <h3>Faça seu cadastro para entrar na plataforma</h3>
+            <div className="register">
+                <div className="content-wraper">
+                    <h1>Crie sua conta</h1>
+                    <h3>Faça seu cadastro para entrar na plataforma</h3>
 
-                <form>
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Nome Completo" />
-                    </div>
+                    <form>
+                        <div className="form-group">
+                            <input type="text" name="name" placeholder="Nome Completo" />
+                        </div>
 
-                    <div class="form-group">
-                        <input type="email" name="name" placeholder="E-mail" />
-                    </div>
+                        <div className="form-group">
+                            <input type="email" name="name" placeholder="E-mail" />
+                        </div>
 
-                    <div class="form-group-password">
-                        <input type="password" name="name" placeholder="Senha" />
-                        <input type="password" name="name" placeholder="Confirmar senha" />
-                    </div>
+                        <div className="form-group-password">
+                            <input type="password" name="name" placeholder="Senha" />
+                            <input type="password" name="name" placeholder="Confirmar senha" />
+                        </div>
 
-                    <div class="viewpass">
-                        <label> <input type="checkbox" name="checkbox" value="value"/> Mostrar senha</label>
-                    </div>
+                        <div className="viewpass">
+                            <label> <input type="checkbox" name="checkbox" value="value"/> Mostrar senha</label>
+                        </div>
 
-                    <div class="create-cont"> 
-                        <a href="#">Faça login em vez disso</a>
-                    </div>
+                        <div className="create-cont"> 
+                            <a href="#">Faça login em vez disso</a>
+                        </div>
 
-                    <button class="btn-logar" type="button">Entrar</button>
-                    
-                </form>
+                        <button className="btn-logar" type="button">Entrar</button>
+                        
+                    </form>
+                </div>
             </div>
         </div>
     )
