@@ -2,30 +2,29 @@ import React from 'react';
 import '../styles/pages/dash.css';
 
 function Dashboard() {
-    return (
-
-      <div class="container">
-
-        <h1 class="title"> GOOGLE SALA DE AULA</h1>
-        
-        <div class="header"/>
+  return(
+    <div>
+      <div className="container">
+        <h1 className="title"> GOOGLE SALA DE AULA</h1>
+          
+        <div className="header">
 
           <input type="checkbox" id="check-turma" name="mm"/>
-          <label  class="check-turma"> </label>
+          <label  className="check-turma"> </label>
 
           <input type="checkbox" id="check-logout" name="mm"/>
-          <label class="check-logout"> </label>
+          <label className="check-logout"> </label>
 
         </div>
 
-        <div class="content-wraper">
+        <div className="content-wraper">
           
         </div>
 
+        <footer>Integrator Project II Google Classroom - 2021</footer>
       </div>
-
-      <footer>Integrator Project II Google Classroom - 2021</footer>
-      )
-    }
+    </div>
+  )
+}
     
-  export default Dashboard;
+export default Dashboard;

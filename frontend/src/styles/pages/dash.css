@@ -89,25 +89,6 @@ body{
   margin-left: 33px;
 }
 
-.menu1, .menu2{
-  background-color: rgb(255,255,255);
-  width: 200px;
-  height: 40px; 
- 
-} 
-
-a{
-  text-decoration: none;
-  color: rgb(105,105,105);
-}
-
-.menus{
-  height: 0px;
-  margin-top: 50px;
-  position: relative;
-  margin-left:1060px;
-}
-
 footer{
   text-align: center;
   color: rgb(105,105,105);
