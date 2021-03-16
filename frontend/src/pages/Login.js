@@ -3,6 +3,8 @@ import '../styles/pages/login.css';
 
 function Login() {
     return (
+        <h1 class="title"> GOOGLE SALA DE AULA</h1>
+
         <div class="login">
             <div class="content-wraper">
                 <h1>Fazer Login</h1>
