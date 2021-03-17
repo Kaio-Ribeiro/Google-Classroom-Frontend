@@ -3,11 +3,11 @@ import '../styles/pages/login.css';
 
 function Login() {
     return (
-        <div>
+        <div id="body-login">
             <h1 className="title"> GOOGLE SALA DE AULA</h1>
 
             <div className="login">
-                <div className="content-wraper">
+                <div className="content-w">
                     <h1>Fazer Login</h1>
                     <h3>Use sua conta do Google</h3>
 

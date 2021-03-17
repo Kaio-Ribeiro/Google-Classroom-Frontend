@@ -3,7 +3,7 @@ import '../styles/pages/dash.css';
 
 function Dashboard() {
   return(
-    <div>
+    <div id="body-dash">
       <div className="container">
         <h1 className="title"> GOOGLE SALA DE AULA</h1>
           

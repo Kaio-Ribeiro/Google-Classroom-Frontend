@@ -3,11 +3,11 @@ import '../styles/pages/register.css';
 
 function Login() {
     return (
-        <div>
+        <div id="body-register">
             <h1 className="title"> GOOGLE SALA DE AULA</h1>
 
             <div className="register">
-                <div className="content-wraper">
+                <div className="content-wra">
                     <h1>Crie sua conta</h1>
                     <h3>Faça seu cadastro para entrar na plataforma</h3>
 
