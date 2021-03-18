@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/pages/login.css';
 
 function Login() {
@@ -25,7 +26,7 @@ function Login() {
                         </div>
 
                         <div className="create-cont"> 
-                            <a href="www.google.com">Criar conta</a>
+                            <Link to="/register">Criar conta</Link>
                         </div>
 
                         <button className="btn-logar" type="button">Entrar</button>
