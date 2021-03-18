@@ -1,0 +1,86 @@
+*{
+    padding: 10px;
+    margin: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+  body{
+    background-color: rgb(0, 191, 255);
+  }
+ 
+  
+  .container{
+    background-color: white;
+    margin-top: 20px;
+    text-align: center;
+    position:relative;
+    width: 500px;
+    height: 400px;
+    margin: 50px auto;
+  }
+
+  .criar_turma{
+    width: 500px;
+    height: 400px;
+    max-height: 500px;
+    margin: 50px auto;
+    border: 0 none;
+      border-radius: 3px;
+      box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
+    background-color: rgb(255,255,255);
+  }
+  
+  .content-wraper{
+    position:relative;
+    width: 500px;
+    height: 400px;
+  
+    text-align: center;  
+  }
+  
+  h1{
+    padding-top: 30px;
+    color: black;
+    font-size: 15px;
+  }
+  
+  h3{
+    color:rgb(105,105,105);
+    padding-bottom: 20px;
+  }
+  
+  input{
+    padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 10px;
+      width: 90%;
+      font-size: 14px;
+    color: rgb(105,105,105);
+  }
+  
+  .viewpass{
+    position: relative;
+    text-align: justify;
+    padding: 10px;
+    margin-left: 68px;
+    font-size: 12px;
+    color: rgb(105,105,105);
+  }
+  
+  
+  button{
+    float: right;
+    padding: 10px;
+    font-weight: bolder;
+    margin-right: 15px;
+    border-style: none;
+    background-color: rgb(32,178,170);
+    border-radius: 3px;
+    color: rgb(255,255,255);
+    font-size: 15px;
+  }
+  
+  button:active{
+    background-color:rgb(0,139,139);
+  }
