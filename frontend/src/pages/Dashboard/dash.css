@@ -1,0 +1,100 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+  background-color:rgb(0,191,255);
+}
+
+#body-dash .title-dash{
+  font-size: 40px;
+  color: rgb(255,255,255);
+  font-weight: 100;
+  margin: 30px;
+  margin-left: 20px;
+}
+
+#body-dash .header .check-turma{
+	height:50px;
+	width:50px;
+	border-radius:50%;
+	cursor:pointer;
+  transform:rotate(44deg);
+  margin-top: -30px;
+}
+
+#body-dash .header .check-turma::after{
+  position: relative;
+  margin-left:12px;
+	margin-top:2px;
+	content:"\2716";
+	font-size:32px;
+  color: rgb(255,255,255);
+  font-weight: 100;
+  transform:rotate(45deg);
+}
+
+#body-dash .header .check-turma:hover{
+  background-color: rgba(169,169,169,0.4);
+}
+
+
+#body-dash .content-w-dash{
+  border-radius: 3px;
+  width: 96%;
+  max-width: 95%;
+  height: 500px;
+  max-height: 1000px;
+  align-content: center;
+  margin-left: 23px;
+  background-color: rgba(255,255,255,0.8);
+  margin-top: 15px;
+}
+
+#body-dash .header .btn-turma{
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  font-size: 30px;
+  border: none;
+  color:rgb(255,255,255);
+  background:none;
+  position: relative;
+  margin-left: 1120px;
+
+}
+
+#body-dash .header .btn-logout{
+  float: right;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  font-size: 12px;
+  border: none;
+  color:rgb(255,255,255);
+  background:rgba(105,105,105,0.3);
+  position: relative;
+  right: 10px;
+}
+
+#body-dash .header .btn-turma:hover{
+  background-color: rgba(105,105,105,0.3);
+}
+
+#body-dash .header .btn-logout:hover{
+  color:red;
+}
+
+footer{
+  text-align: center;
+  color: rgb(105,105,105);
+  font-size: 15px;
+  height: 30px;
+  background-color: rgb(255,255,255);
+  width: 95%;
+  max-width: 95%;
+  align-content: center;
+  margin-left: 23px;
+}
