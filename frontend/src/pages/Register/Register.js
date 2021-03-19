@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import api from '../../services/api.js';
 import './register.css';
 import '../checkbox.js'
 
-function Login() {
+function Register() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmedPassword, setConfirmedPassword] = useState('');
+
+    const history = useHistory();
 
     async function handleRegister(e) {
         e.preventDefault();
@@ -25,6 +27,7 @@ function Login() {
         try {
             const  response = await api.post('users', data)
             alert("Usuário cadastrado com suscesso")
+            history.push('/');
         } catch (err) {
             alert("Erro no cadastro")
         }
@@ -97,4 +100,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Register;

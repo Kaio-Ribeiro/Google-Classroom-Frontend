@@ -1,9 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+
+import api from '../../services/api.js';
 import './login.css';
 import '../checkbox.js'
 
 function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const history = useHistory();
+
+
+    async function handleLogin(e) {
+        e.preventDefault();
+
+        console.log(email);
+
+        try {
+            /*const response = await api.post('sessions', { email })
+
+            localStorage.setItem('userID', response.data.id)
+            localStorage.setItem('userEmail', email)*/
+       
+
+            history.push('/dashboard');
+
+        } catch (err) {
+            alert("Falha no login, tente novamente")
+        }
+    }
+
     return (
         <div id="body-login">
             <h1 className="title"> GOOGLE SALA DE AULA</h1>
@@ -13,13 +39,26 @@ function Login() {
                     <h1>Fazer Login</h1>
                     <h3>Use sua conta do Google</h3>
 
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <div className="form-group">
-                            <input type="email" name="name" placeholder="Digite seu e-mail" />
+                            <input 
+                                type="email" 
+                                name="name" 
+                                placeholder="Digite seu e-mail"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)} 
+                            />
                         </div>
 
                         <div className="form-group">
-                            <input type="password" name="name" placeholder="Digite sua senha" id="pass"/>
+                            <input 
+                                type="password" 
+                                name="name" 
+                                placeholder="Digite sua senha" 
+                                id="pass"
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                            />
                         </div>
 
                         <div className="user-viewpass">
@@ -30,7 +69,7 @@ function Login() {
                             <Link to="/register">Criar conta</Link>
                         </div>
 
-                        <button className="btn-logar" type="button">Entrar</button>
+                        <button className="btn-logar" type="submit">Entrar</button>
                         
                     </form>
                 </div>
