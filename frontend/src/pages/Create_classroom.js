@@ -10,7 +10,7 @@ function Create_classroom() {
             <div class="container">
             <h1> Criar Turma</h1>
 
-                <div class="content-wraper">
+                <div class="content-turma">
                     <form>
                         <div class="turma-nome">
                             <input type="text" name="name" placeholder="Nome da Turma" />

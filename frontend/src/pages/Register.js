@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/pages/register.css';
+import './checkbox.js'
 
 function Login() {
     return (
@@ -22,12 +23,12 @@ function Login() {
                         </div>
 
                         <div className="form-group-password">
-                            <input type="password" name="name" placeholder="Senha" />
-                            <input type="password" name="name" placeholder="Confirmar senha" />
+                            <input type="password" name="name" placeholder="Senha" id="pass"/>
+                            <input type="password" name="name" placeholder="Confirmar senha" id="passConf"/>
                         </div>
 
                         <div className="viewpass">
-                            <label> <input type="checkbox" name="checkbox" value="value"/> Mostrar senha</label>
+                            <input type="checkbox" name="checkbox" value="value" id="check"/> <label> Mostrar senha</label>
                         </div>
 
                         <div className="create-cont"> 
@@ -40,6 +41,7 @@ function Login() {
                 </div>
             </div>
         </div>
+        
     )
 }
 

@@ -4,11 +4,13 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.body-create-turma{
+.body{
   background-color: rgb(0, 191, 255);
 }
 
+
 .title{
+  font-family: 'Lucida Sans';
   font-size: 40px; 
   font-weight: 100px;
   color: rgb(255,255,255);
@@ -19,18 +21,20 @@
   text-align: center;
   position:relative;
   width: 500px;
-  height: 400px;
+  height: 380px;
   max-height: 700px;
   margin: 50px auto;
+  border-radius: 3px;
+  padding: 10px;
 }
 
 h1{
   padding: 10px;
   color:rgb(105,105,105);
-  font-size: 25px;
+  font-size: 22px;
 }
 
-.content-wraper{
+.content-turma{
   position:relative;
   width: 500px;
   height: 300px;
@@ -38,21 +42,23 @@ h1{
 }
 
 input{
+  position: relative;
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 3px;
   width: 90%;
   font-size: 14px;
   color: rgb(105,105,105);
+  margin-bottom: 15px;
 }
 
 .turma-descricao input{
   height: 100px;
   max-height: 150px;
-  padding-bottom: 10px;
 }
 
 .btn-cancel-turma{
+  padding: 10px;
   position: relative;
   font-weight: bolder;
   border-style: none;
@@ -60,6 +66,7 @@ input{
   color: rgb(0,139,139);
   font-size: 15px;
   background: none;
+ 
 }
 .btn-cancel-turma:active{
   color: rgb(255,255,255);
@@ -69,7 +76,7 @@ input{
 .btn-create-turma{
   padding: 10px;
   font-weight: bolder;
-  margin-left: 260px;
+  margin-left: 330px;
   margin-top: -30px;
   
   border-style: none;
@@ -77,6 +84,8 @@ input{
   border-radius: 3px;
   color:rgb(255,255,255);
   font-size: 15px;
+
+  
 }
 
 .btn-logar:active{

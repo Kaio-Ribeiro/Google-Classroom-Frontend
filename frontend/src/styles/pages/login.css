@@ -4,9 +4,10 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.body-login{
+body{
   background-image: url("../../images/background.png");
 }
+
 
 .title{
   font-size: 40px; 
@@ -33,31 +34,38 @@
   text-align: center;  
 }
 
-h1{
-  padding: 30px;
+.content-w h1{
+  padding: 20px;
   color:rgb(105,105,105);
 }
 
-h3{
+.content-w h3{
   color:rgb(105,105,105);
-  padding-bottom: 20px;
+  padding-bottom: 15px;
 }
 
-.form-group input{
+#body-login .login .content-w .form-group input{
+  position: relative;
   padding: 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	margin-bottom: 10px;
 	width: 70%;
 	font-size: 14px;
   color: rgb(105,105,105);
+  margin-top: 15px;
 }
 
-.viewpass{
+#body-login .login .content-w .viewpass input{
   position: relative;
-  text-align: justify;
-  padding: 10px;
-  margin-left: 68px;
+  font-size: 12px;
+  color: rgb(105,105,105);
+  margin-left:-350px ;
+}
+
+#body-login .login .content-w .viewpass label{
+  float: right;
+  margin-top: -25px;
+  margin-right: 325px;
   font-size: 12px;
   color: rgb(105,105,105);
 }

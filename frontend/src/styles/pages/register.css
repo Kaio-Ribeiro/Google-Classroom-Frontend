@@ -4,9 +4,10 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   
-  .body-register{
+body{
     background-image: url("../../images/background.png");
-  }
+}
+  
   
   .title{
     font-family: "Stay Home";
@@ -34,7 +35,7 @@
     text-align: center;  
   }
   
-  h1{
+#body-register .register .content-wra h1{
     padding: 30px;
     color:rgb(105,105,105);
   }
@@ -66,15 +67,23 @@
     color: rgb(105,105,105);
   }
   
-  .viewpass{
+
+ #body-register .register .content-wra .viewpass input{
+    padding-top: 10px;
     position: relative;
-    text-align: justify;
-    padding: 10px;
-    margin-left: 68px;
+    font-size: 12px;
+    color: rgb(105,105,105);
+    margin-left:-350px ;
+  }
+  
+  #body-register .register .content-wra .viewpass label{
+    float: right;
+    margin-right: 325px;
+    margin-top: -26px;
     font-size: 12px;
     color: rgb(105,105,105);
   }
-  
+
   .create-cont{
     position: relative;
     text-align: justify;
