@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import api from '../services/api.js';
 import '../styles/pages/register.css';
 import './checkbox.js'
 
 function Login() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmedPassword, setConfirmedPassword] = useState('');
+
+    function handleRegister(e) {
+        e.preventDefault();
+    }
+
     return (
         <div id="body-register">
             <h1 className="title"> GOOGLE SALA DE AULA</h1>
@@ -13,9 +24,15 @@ function Login() {
                     <h1>Crie sua conta</h1>
                     <h3>Faça seu cadastro para entrar na plataforma</h3>
 
-                    <form>
+                    <form onSubmit={handleRegister}>
                         <div className="form-group">
-                            <input type="text" name="name" placeholder="Nome Completo" />
+                            <input 
+                                type="text" 
+                                name="name" 
+                                placeholder="Nome Completo" 
+                                value={name}
+                                onChange={e => setName(e.target.value)}
+                            />
                         </div>
 
                         <div className="form-group">
