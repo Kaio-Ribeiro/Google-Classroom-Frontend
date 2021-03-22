@@ -1,18 +1,16 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './dash.css';
 
 function Dashboard() {
   const history = useHistory();
 
-    function handleLogout() {
+  function logout() {
+    history.push('/');
+  }
 
-        history.push('/');
-    }
-
-    function handleCreateClassroom() {
-
-      history.push('/create-classroom');
+  function navigateToCreateClassroom() {
+    history.push('/createClassroom');
   }
 
 
@@ -23,8 +21,8 @@ function Dashboard() {
           
           <div className="header">
 
-          <button className="btn-turma" onClick={handleCreateClassroom}>+</button> 
-          <button className="btn-logout" onClick={handleLogout}>Logout</button> 
+          <button className="btn-turma" onClick={navigateToCreateClassroom}>+</button> 
+          <button className="btn-logout" onClick={logout}>Logout</button> 
 
           </div>
 

@@ -14,13 +14,13 @@ function Login() {
     async function handleLogin(e) {
         e.preventDefault();
 
-        console.log(email);
+        const data = {email, password}
 
         try {
-            /*const response = await api.post('sessions', { email })
+            const response = await api.post('sessions', data)
 
             localStorage.setItem('userID', response.data.id)
-            localStorage.setItem('userEmail', email)*/
+            localStorage.setItem('userEmail', email)
        
 
             history.push('/dashboard');
