@@ -1,9 +1,11 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import './dash.css';
+import api from '../../services/api'
 
 function Dashboard() {
   const history = useHistory();
+  const [classrooms,setClassrooms] = useState([])
 
   function logout() {
     history.push('/');
@@ -13,6 +15,13 @@ function Dashboard() {
     history.push('/createClassroom');
   }
 
+  useEffect(() => {
+    api.get('classrooms',{
+
+    }).then(response => {
+      setClassrooms(response.data)
+    })
+  }, [])
 
   return(
     <div id="body-dash">
@@ -27,7 +36,15 @@ function Dashboard() {
           </div>
 
           <div className="content-w-dash">
-          
+            <ul>
+              {classrooms.map(classrooms => (
+                <li key={classrooms.id}>
+                <strong> {classrooms.title} </strong>
+                <p>{classrooms.description}</p>
+                
+              </li>
+              ))}
+            </ul>
           </div> 
         
 
