@@ -6,17 +6,23 @@ import api from '../../services/api'
 function Dashboard() {
   const history = useHistory();
   const [classrooms,setClassrooms] = useState([])
+  const userID = localStorage.getItem('userID')
 
   function logout() {
     history.push('/');
   }
 
   function navigateToCreateClassroom() {
+    
     history.push('/createClassroom');
   }
 
   useEffect(() => {
-    api.get('classrooms',{
+    api.get('classrooms', {
+      headers: {
+        Authorization: userID,
+      }
+    },{
 
     }).then(response => {
       setClassrooms(response.data)
@@ -37,11 +43,12 @@ function Dashboard() {
 
           <div className="content-w-dash">
             <ul>
-              {classrooms.map(classrooms => (
-                <li key={classrooms.id}>
-                <strong> {classrooms.title} </strong>
-                <p>{classrooms.description}</p>
-                
+              {classrooms.map(classroom => (
+                <li key={classroom.id}>
+                  <div className="image-list">
+                    <strong> {classroom.title} </strong>
+                    <p>{classroom.description}</p>
+                  </div>
               </li>
               ))}
             </ul>

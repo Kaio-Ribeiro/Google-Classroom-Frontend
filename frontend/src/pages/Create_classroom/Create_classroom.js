@@ -18,6 +18,7 @@ function Create_classroom() {
 
         try {
             const response = await api.post('classrooms', data)
+            console.log(userID)
 
             localStorage.setItem('class_id', response.data.class_id)
             
