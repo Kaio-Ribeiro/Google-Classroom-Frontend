@@ -47,10 +47,15 @@ function Dashboard() {
                 <li key={classroom.id}>
                   
                   <div className="image-list">
-                  <Link>
+                    <Link to={
+                      {
+                        pathname: '/mural',
+                        state: classroom
+                      }
+                    }>
                       <strong> {classroom.title} </strong>
                       <p>{classroom.description}</p>
-                      </Link>
+                    </Link>
                   </div>
                   
               </li>
