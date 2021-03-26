@@ -65,6 +65,7 @@ body{
   border-radius: 8px;
   position: relative;
   height: 250px;
+  
 }
 
 .image-list {
@@ -73,18 +74,29 @@ body{
   background-size: 300px 100px;
   height: 30%;
   border-radius: 3px;
+  display: flex;
+  
 }
 
 #body-dash .content-w-dash ul li strong{
   display: block;
   color: #fff;
+  margin-top: -15px;
+  
 }
 
 #body-dash .content-w-dash ul li p{
   color: #fff;
   line-height: 21px;
   font-size: 16px;
+  
+  
 }
+#body-dash .content-w-dash ul li .image-list a{
+  text-decoration: none;
+  
+}
+
 
 /** */
 

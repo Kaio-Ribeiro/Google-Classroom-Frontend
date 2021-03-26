@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './dash.css';
 import api from '../../services/api'
 
@@ -27,7 +27,7 @@ function Dashboard() {
     }).then(response => {
       setClassrooms(response.data)
     })
-  }, [])
+  }, [userID])
 
   return(
     <div id="body-dash">
@@ -45,10 +45,14 @@ function Dashboard() {
             <ul>
               {classrooms.map(classroom => (
                 <li key={classroom.id}>
+                  
                   <div className="image-list">
-                    <strong> {classroom.title} </strong>
-                    <p>{classroom.description}</p>
+                  <Link>
+                      <strong> {classroom.title} </strong>
+                      <p>{classroom.description}</p>
+                      </Link>
                   </div>
+                  
               </li>
               ))}
             </ul>
