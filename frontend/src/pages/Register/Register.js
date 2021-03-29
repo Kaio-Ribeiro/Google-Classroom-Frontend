@@ -21,7 +21,7 @@ function Register() {
             name,
             email,
             password,
-            
+            confirmedPassword
         }
 
         try {

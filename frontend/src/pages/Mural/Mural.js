@@ -1,11 +1,13 @@
 import React from 'react';
 import {useLocation} from "react-router-dom";
+import { Link, useHistory } from 'react-router-dom';
 
 import './mural.css';
 
 function Mural() {
     const location = useLocation();
-    console.log(location.state);
+    localStorage.setItem('class_id', location.state.id)
+    console.log(location.state.id);
 
     return (
         <div>
@@ -29,7 +31,7 @@ function Mural() {
                     </div>
 
                     <div className="item-3">
-                    <a id="pessoas-menu" href="">Pessoas</a>
+                        <Link id="pessoas-menu" to="/persons">Pessoas</Link>
                     </div>
 
                     <div className="item-4">
@@ -49,7 +51,7 @@ function Mural() {
 
                     <div className="text-container-one">
                     <h1 className="nome-turma-mural">{location.state.title}</h1>
-                    <h3 className="codigo">Código da turma: {location.state.id}</h3>
+                    <h3 className="codigo">Código da turma: {location.state.code}</h3>
                     </div>
                 </div>
 
@@ -57,11 +59,11 @@ function Mural() {
                 <div className="container-four">
                     <p className="text-comunic">Comunique-se com sua turma aqui !</p>
 
-                <textarea id="descri-postagem" placeholder="Escreva um aviso para sua turma"></textarea>
+                    <textarea id="descri-postagem" placeholder="Escreva um aviso para sua turma"></textarea>
 
-                <button id="anexar-doc-mural" name="doc-mural">Adicionar Arquivos</button>
+                    <button id="anexar-doc-mural" name="doc-mural">Adicionar Arquivos</button>
 
-                <button id="postar-mural" name="postagem-mural">Postar</button>
+                    <button id="postar-mural" name="postagem-mural">Postar</button>
 
 
                 </div>
@@ -69,7 +71,7 @@ function Mural() {
                 <div className="mural-postagens"></div>
 
             </div>
-            </div>
+        </div>
     )
 }
 

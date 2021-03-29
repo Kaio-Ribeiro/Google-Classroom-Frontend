@@ -20,9 +20,11 @@ function Create_classroom() {
             const response = await api.post('classrooms', data)
             console.log(userID)
 
-            localStorage.setItem('class_id', response.data.class_id)
+            localStorage.setItem('class_id', response.data)
             
-            alert(`Turma criada com suscesso ${response.data.class_id}`)
+            alert(`Turma criada com suscesso`)
+
+            history.push('/mural');
 
         } catch (err) {
             alert("Falha ao criar turma, tente novamente")

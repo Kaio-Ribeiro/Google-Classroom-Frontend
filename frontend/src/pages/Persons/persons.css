@@ -1,0 +1,171 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+  }
+  
+  body {
+    margin: 0;
+    background-color: rgb(0, 191, 255);
+  } 
+  
+  
+  
+  .menu-suspenso-pessoas {
+  background: white;
+  position: relative;
+  width: 100%;
+  height: 85px;
+  max-height: 85px;
+  min-height: 85px;
+  z-index: 1;
+  }
+  
+  .menu-suspenso-pessoas .part1-pessoas{
+    position:relative;
+    padding: 20px;
+    width: 80px;
+    height: 20px;
+    left: 35px;
+    top: 10px;
+    border-radius:50px;
+    border:solid 1px rgba(105,105,105,0.4);
+  }
+  .menu-suspenso-pessoas .turmas-menu-pessoas {
+  position: relative;
+  text-decoration: none;
+  color:rgb(128,128,128) ;
+  font-size: 16px;
+  justify-items: center;
+  font-weight: bolder;
+  
+  }
+  
+  .menu-suspenso-pessoas .list-names-center-pessoas {
+  position: relative;
+  height: 4rem;
+  justify-content: center;
+  height: 4rem;
+  text-align: center;
+  width:70%;
+  display: flex;
+  margin-top: -56px;
+  margin-left: 190px;
+  }
+  
+  .menu-suspenso-pessoas .list-names-center-pessoas .item-1-pessoas, .item-2-pessoas, .item-3-pessoas, .item-4-pessoas{
+    position: relative;
+    height: 70%;
+    margin-top:10px;
+  }
+  
+  .menu-suspenso-pessoas .list-names-center-pessoas #mural-menu-pessoas, #atividades-menu-pessoas, #pessoas-menu-pessoas, #notas-menu-pessoas{
+  align-items: center;
+  display: flex;
+  padding: 0.125rem 1.5rem 0 1.5rem;
+  position: relative;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: bolder;
+  color:rgb(128,128,128);
+  font-size: 15px;
+  }
+  
+  .menu-suspenso-pessoas .list-names-center-pessoas #pessoas-menu-pessoas{
+    color: rgb(32,178,170);
+  }
+  .menu-suspenso-pessoas .logout-pessoas{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    margin-top: -80px;
+  }
+  
+  .menu-suspenso-pessoas .logout-pessoas .btn-logout-menu-suspenso-pessoas{
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  font-size: 12px;
+  border: none;
+  color:rgb(128,128,128);
+  position: relative;
+  font-weight: bolder;
+  left:1150px;
+  }
+  
+  .navegacao-pessoas{
+    margin:50px auto;
+    width: 61%;
+    background-color: rgb(255,255,255);
+    padding:10px;
+    box-shadow: 0px 0px 7px rgb(255,255,255);
+    border-radius: 5px;
+  }
+  
+  .navegacao-pessoas .professores .title-professores{
+    border-bottom: solid 1px rgb(32,178,170);
+  }
+  
+  .navegacao-pessoas .professores .title-professores .title-class-professores{
+    font-weight: lighter;
+    color:rgb(32,178,170);
+    display: inline-flex;
+  }
+  
+  .navegacao-pessoas .professores .title-professores .envio-email-prof{
+    height: 10px;
+    width: 170px;
+    position: relative;
+    display: inline-flex;
+    margin-left: 300px;
+    margin-right: 10px;
+  }
+  
+  .navegacao-pessoas .professores .title-professores .submit-convite-prof{
+    height: 35px;
+    padding: 5px;
+    background-color: rgb(32,178,170);
+    color:rgb(255,255,255);
+    border-radius: 3px;
+    font-weight: bold;
+    border: none;
+  }
+  
+  
+  .navegacao-pessoas .alunos .title-alunos{
+    border-bottom: solid 1px rgb(32,178,170);
+  }
+  
+  .navegacao-pessoas .alunos .title-alunos .title-class-alunos{
+    font-weight: lighter;
+    color:rgb(32,178,170);
+    display: inline-flex;
+  }
+  
+  .navegacao-pessoas .alunos .title-alunos .envio-email-aluno{
+    height: 10px;
+    width: 170px;
+    position: relative;
+    display: inline-flex;
+    margin-left: 350px;
+    margin-right: 10px;
+  }
+  
+  .navegacao-pessoas .alunos .title-alunos .submit-convite-aluno{
+    height: 35px;
+    padding: 5px;
+    background-color: rgb(32,178,170);
+    color:rgb(255,255,255);
+    border-radius: 3px;
+    font-weight: bold;
+    border: none;
+  }
+  
+  .navegacao-pessoas .alunos{
+    position: relative;
+    margin-top: 200px;
+  }
+  
+  .navegacao-pessoas .alunos .lista-alunos{
+    min-height: 250px;
+  }
