@@ -17,6 +17,12 @@ function Dashboard() {
     history.push('/createClassroom');
   }
 
+  function storeClass(classroom) {
+    
+    localStorage.setItem('class_id', classroom.id);
+    localStorage.setItem('classroom', JSON.stringify(classroom));
+  }
+
   useEffect(() => {
     api.get('classrooms', {
       headers: {
@@ -47,12 +53,7 @@ function Dashboard() {
                 <li key={classroom.id}>
                   
                   <div className="image-list">
-                    <Link to={
-                      {
-                        pathname: '/mural',
-                        state: classroom
-                      }
-                    }>
+                    <Link to="/mural" onClick={() => storeClass(classroom)}>
                       <strong> {classroom.title} </strong>
                       <p>{classroom.description}</p>
                     </Link>

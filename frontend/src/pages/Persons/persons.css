@@ -169,3 +169,16 @@
   .navegacao-pessoas .alunos .lista-alunos{
     min-height: 250px;
   }
+
+  .btnDelete {
+    margin-left: 600px;
+  }
+
+  strong {
+    position: absolute;
+    color:rgb(128,128,128);
+  }
+
+  li {
+    list-style-type: none;
+  }

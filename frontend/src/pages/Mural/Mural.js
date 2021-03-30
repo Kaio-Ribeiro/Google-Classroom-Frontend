@@ -5,9 +5,13 @@ import { Link, useHistory } from 'react-router-dom';
 import './mural.css';
 
 function Mural() {
+    const  history = useHistory()
     const location = useLocation();
-    localStorage.setItem('class_id', location.state.id)
-    console.log(location.state.id);
+    const classroom = JSON.parse(localStorage.getItem('classroom'));
+
+    function logout() {
+        history.push('/');
+    }
 
     return (
         <div>
@@ -15,9 +19,9 @@ function Mural() {
 
                 <div className="part1">
                     
-                    <a className="turmas-menu" href="">
+                    <Link className="turmas-menu" to="/dashboard">
                         Turmas
-                    </a>
+                    </Link>
 
                 </div>
 
@@ -41,7 +45,7 @@ function Mural() {
 
 
                 <div className="logout-mural">
-                    <button className="btn-logout-menu-suspenso">Logout</button>
+                    <button className="btn-logout-menu-suspenso" onClick={logout}>Logout</button>
                 </div>
                 
                 </div>
@@ -50,8 +54,8 @@ function Mural() {
                 <div className="container-mural">
 
                     <div className="text-container-one">
-                    <h1 className="nome-turma-mural">{location.state.title}</h1>
-                    <h3 className="codigo">Código da turma: {location.state.code}</h3>
+                    <h1 className="nome-turma-mural">{classroom.title}</h1>
+                    <h3 className="codigo">Código da turma: {classroom.code}</h3>
                     </div>
                 </div>
 

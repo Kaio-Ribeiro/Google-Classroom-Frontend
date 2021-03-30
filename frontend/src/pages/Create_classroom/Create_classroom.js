@@ -24,7 +24,7 @@ function Create_classroom() {
             
             alert(`Turma criada com suscesso`)
 
-            history.push('/mural');
+            history.push('/dashboard');
 
         } catch (err) {
             alert("Falha ao criar turma, tente novamente")
