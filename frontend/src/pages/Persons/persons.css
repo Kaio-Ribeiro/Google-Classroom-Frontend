@@ -104,6 +104,13 @@
   
   .navegacao-pessoas .professores .title-professores{
     border-bottom: solid 1px rgb(32,178,170);
+    display: flex;
+    align-items:baseline;
+  }
+  .navegacao-pessoas .professores .title-professores .title-professor-form{
+    display: flex;
+    align-items:baseline;
+
   }
   
   .navegacao-pessoas .professores .title-professores .title-class-professores{
@@ -132,8 +139,15 @@
   }
   
   
-  .navegacao-pessoas .alunos .title-alunos{
+  .navegacao-pessoas .alunos .title-alunos {
     border-bottom: solid 1px rgb(32,178,170);
+    display: flex;
+    align-items:baseline;
+    
+  }
+  .navegacao-pessoas .alunos .title-alunos .title-alunos-form{
+    display: flex;
+    align-items:baseline;
   }
   
   .navegacao-pessoas .alunos .title-alunos .title-class-alunos{

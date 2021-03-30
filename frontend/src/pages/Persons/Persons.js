@@ -2,6 +2,7 @@ import React, {useEffect,useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api'
 import './persons.css';
+import emailjs from 'emailjs-com';
 
 function Persons() {
     const history = useHistory();
@@ -55,6 +56,20 @@ function Persons() {
         history.push('/');
       
     }
+    
+
+    function sendEmail(e) {
+        e.preventDefault();
+    
+        emailjs.sendForm('gmailMessage', 'template_i74hiel', e.target, 'user_UGPno79ye2fyfKxSFyeZO')
+          .then((result) => {
+              alert('Convite enviado com sucesso')
+          }, (error) => {
+              alert(error.message)
+          })
+          e.target.reset()
+          
+      }
 
     return (
         <div>
@@ -98,10 +113,13 @@ function Persons() {
 
                     <div className="title-professores">
                         <h1 className="title-class-professores">Professores</h1>
+                        <form className="title-professor-form" onSubmit={sendEmail}>
 
-                        <input typeName="text" className="envio-email-prof" placeholder="Convite pelo email"/>
+                        <input typeName="text" className="envio-email-prof" placeholder="Convite pelo email" name="to_Email"/>
+                        
 
-                        <button className="submit-convite-prof" name="subconvprof">Convidar</button>
+                        <button type="submit" className="submit-convite-prof" name="subconvprof">Convidar</button>
+                        </form>
                     </div>
 
                     <div className="lista-professores">
@@ -109,7 +127,7 @@ function Persons() {
                         {teachers.map(teacher => (
                             <li key={teacher.id}>
                                 <strong> {teacher.name} </strong>
-                                <button className="btnDelete" onClick={() => deleteUser(teacher.id)}>Excluir</button>
+                                <button  className="btnDelete" onClick={() => deleteUser(teacher.id)}>Excluir</button>
                             </li>
                         ))}
                         </ul>
@@ -119,12 +137,13 @@ function Persons() {
 
                 <div className="alunos">
 
-                    <div className="title-alunos">
+                    <div className="title-alunos" >
                         <h1 className="title-class-alunos">Alunos</h1>
-
-                        <input type="text" className="envio-email-aluno" placeholder="Convite pelo email"/>
-
-                        <button className="submit-convite-aluno" name="subconvalun">Convidar</button>
+                        <form className="title-alunos-form" onSubmit={sendEmail}>
+                            <input type="text" className="envio-email-aluno" placeholder="Convite pelo email" name="to_Email"/>
+                            <button type="submit" className="submit-convite-aluno" name="subconvalun">Convidar</button>
+                        </form>
+                        
                     </div>
 
                     <div className="lista-alunos">
