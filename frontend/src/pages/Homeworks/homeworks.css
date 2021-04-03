@@ -1,0 +1,164 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+  }
+  
+  body {
+    margin: 0px auto;
+    background-color: rgb(0, 191, 255);
+  } 
+  
+  
+  
+  .menu-suspenso-atividades {
+  background: white;
+  position: relative;
+  width: 100%;
+  height: 85px;
+  max-height: 85px;
+  min-height: 85px;
+  z-index: 1;
+  }
+  
+  .menu-suspenso-atividades .part1-atividades{
+    position:relative;
+    padding: 20px;
+    width: 65px;
+    height: 15px;
+    left: 35px;
+    top: 10px;
+    border-radius:50px;
+    border:solid 1px rgba(105,105,105,0.4);
+  }
+  .menu-suspenso-atividades .turmas-menu-atividades {
+  position: relative;
+  text-decoration: none;
+  color:rgb(128,128,128) ;
+  font-size: 16px;
+  justify-items: center;
+  font-weight: bolder;
+  
+  }
+  
+  .menu-suspenso-atividades .list-names-center-atividades {
+  position: relative;
+  height: 4rem;
+  justify-content: center;
+  height: 4rem;
+  text-align: center;
+  width:70%;
+  display: flex;
+  margin-top: -40px;
+  margin-left: 200px;
+  }
+  
+  .menu-suspenso-atividades .list-names-center-atividades .item-1-atividades, .item-2-atividades, .item-3-atividades, .item-4-atividades{
+    position: relative;
+    height: 70%;
+    margin-top:10px;
+  }
+  
+  .menu-suspenso-atividades .list-names-center-atividades #mural-menu-atividades, #atividades-menu-atividades, #pessoas-menu-atividades, #notas-menu-atividades{
+  align-items: center;
+  display: flex;
+  padding: 0.125rem 1.5rem 0 1.5rem;
+  position: relative;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: bolder;
+  color:rgb(128,128,128);
+  font-size: 15px;
+  }
+  
+  .menu-suspenso-atividades .list-names-center-atividades #atividades-menu-atividades{
+    color: rgb(32,178,170);
+  }
+  .menu-suspenso-atividades .logout-atividades{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    margin-top: -70px;
+  }
+  
+  .menu-suspenso-atividades .logout-atividades .btn-logout-menu-suspenso-atividades{
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  font-size: 12px;
+  border: none;
+  color:rgb(128,128,128);
+  position: relative;
+  font-weight: bolder;
+  left:1275px;
+  }
+  
+  .navegacao-atividades{
+    margin:50px auto;
+    width: 61%;
+    
+    background-color: rgb(255,255,255);
+    padding:10px;
+    box-shadow: 0px 0px 7px rgb(255,255,255);
+    border-radius: 5px;
+  }
+  
+  .navegacao-atividades .criar-cont-turma #btn-criar-cont-turma{
+    position: relative;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 110px;
+    height: 45px;
+    border-radius:20px;
+    background-color: rgb(32,178,170);
+    color: rgb(255,255,255);
+    box-shadow: 0px 0px 4px  rgb(32,178,170);
+    border: none;
+  
+  }
+  
+  .navegacao-atividades .tipo-cont{
+    background-color: rgb(255,255,255);
+    position: relative;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0px 0px 3px rgba(105,105,105,0.5);
+    margin-top: 10px;
+    margin-left: 5px;
+    display: none;
+  }
+  
+  .navegacao-atividades .tipo-cont #tipo-cont-atv, #tipo-cont-mater{
+    position: relative;
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(108,108,108);
+  }
+  .navegacao-atividades .tipo-cont #tipo-cont-atv:hover, #tipo-cont-mater:hover{
+    color: rgb(32,178,170);
+  }
+  
+  .navegacao-atividades .atvidades,.materiais{ 
+    position: relative;
+    margin-top: 10px;
+    padding: 5px;
+  }
+  
+  .navegacao-atividades .atvidades .title-atv{
+    font-size:28px;
+    font-weight: lighter;
+    color: rgb(32,178,170);
+    border-bottom: solid 1px rgb(32,178,170);
+  }
+  
+  .navegacao-atividades .materiais .title-mater{
+    font-size:28px;
+    font-weight: lighter;
+    color: rgb(32,178,170);
+    border-bottom: solid 1px rgb(32,178,170);
+  }
+  
+  .navegacao-atividades .atvidades,.materiais .list-atv, .list-mater{
+    min-height: 200px;
+  }

@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard/Dashboard.js';
 import Create_classroom from './pages/Create_classroom/Create_classroom.js';
 import Mural from './pages/Mural/Mural.js';
 import Persons from './pages/Persons/Persons.js';
+import Homeworks from './pages/Homeworks/Homeworks.js';
 
 export default function Routes() {
     return (
@@ -18,6 +19,7 @@ export default function Routes() {
                 <Route path="/createClassroom" component={Create_classroom} />
                 <Route path="/mural" component={Mural} />
                 <Route path="/persons" component={Persons} />
+                <Route path="/homeworks" component={Homeworks} />
             </Switch>
         </BrowserRouter>
     )

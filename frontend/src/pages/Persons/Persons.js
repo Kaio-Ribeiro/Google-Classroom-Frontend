@@ -3,13 +3,15 @@ import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api'
 import './persons.css';
 import emailjs from 'emailjs-com';
+import { data } from 'jquery';
 
 function Persons() {
     const history = useHistory();
     const [teachers,setTeachers] = useState([])
     const [students,setStudents] = useState([])
+    const [emailStudent,setEmailStudent] = useState('')
     const classID = localStorage.getItem('class_id')
-    console.log(classID)
+    const classroom = JSON.parse(localStorage.getItem('classroom'));
 
     useEffect(() => {
         api.get('teachers', {
@@ -58,16 +60,19 @@ function Persons() {
     }
     
 
-    function sendEmail(e) {
-        e.preventDefault();
-    
-        emailjs.sendForm('gmailMessage', 'template_i74hiel', e.target, 'user_UGPno79ye2fyfKxSFyeZO')
-          .then((result) => {
-              alert('Convite enviado com sucesso')
-          }, (error) => {
-              alert(error.message)
-          })
-          e.target.reset()
+    async function sendEmail(e) {
+        e.preventDefault()
+        const dataEmail = {email: emailStudent, code: classroom.code}
+        console.log(emailStudent)
+
+        try {
+            await api.post('/send-email', dataEmail)
+
+            alert('E-mail enviado com sucesso')
+
+        }catch(err) {
+            alert('Falha no envio do e-mail')
+        }
           
       }
 
@@ -115,10 +120,10 @@ function Persons() {
                         <h1 className="title-class-professores">Professores</h1>
                         <form className="title-professor-form" onSubmit={sendEmail}>
 
-                        <input typeName="text" className="envio-email-prof" placeholder="Convite pelo email" name="to_Email"/>
+                            <input typeName="text" className="envio-email-prof" placeholder="Convite pelo email" name="to_Email"/>
                         
 
-                        <button type="submit" className="submit-convite-prof" name="subconvprof">Convidar</button>
+                            <button type="submit" className="submit-convite-prof" name="subconvprof">Convidar</button>
                         </form>
                     </div>
 
@@ -140,7 +145,7 @@ function Persons() {
                     <div className="title-alunos" >
                         <h1 className="title-class-alunos">Alunos</h1>
                         <form className="title-alunos-form" onSubmit={sendEmail}>
-                            <input type="text" className="envio-email-aluno" placeholder="Convite pelo email" name="to_Email"/>
+                            <input type="text" className="envio-email-aluno" placeholder="Convite pelo email" name="to_Email" value={emailStudent} onChange={e => setEmailStudent(e.target.value)}/>
                             <button type="submit" className="submit-convite-aluno" name="subconvalun">Convidar</button>
                         </form>
                         
