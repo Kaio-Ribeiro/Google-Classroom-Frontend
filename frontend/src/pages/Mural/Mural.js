@@ -1,16 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useLocation} from "react-router-dom";
 import { Link, useHistory } from 'react-router-dom';
+import api from '../../services/api';
 
 import './mural.css';
 
 function Mural() {
-    const  history = useHistory()
+    const [description, setDescription] = useState('')
+
+    const history = useHistory()
     const location = useLocation();
     const classroom = JSON.parse(localStorage.getItem('classroom'));
+    const classID = localStorage.getItem('class_id')
+    const userID = localStorage.getItem('userID')
 
     function logout() {
         history.push('/');
+    }
+
+    async function handleCreatePost(e) {
+        e.preventDefault()
+
+        const data = {description, classID}
+
+        try{
+            await api.post('/posts', data, {
+                headers: {
+                    Authorization: userID
+                }
+            })
+    
+            alert('Postagem criada!')
+
+        }catch(err) {
+            alert('Erro ao criar postagem')
+        }
     }
 
     return (
@@ -27,11 +51,11 @@ function Mural() {
 
                 <div className="list-names-center">
                     <div className="item-1">
-                    <a id="mural-menu" href="">Mural</a>
+                        <Link id="mural-menu" to="/mural">Mural</Link>
                     </div>
 
                     <div className="item-2">
-                    <a id="atividades-menu" href="">Atividades</a>
+                        <Link id="atividades-menu" to="/homeworks">Atividades</Link>
                     </div>
 
                     <div className="item-3">
@@ -39,7 +63,7 @@ function Mural() {
                     </div>
 
                     <div className="item-4">
-                    <a id="notas-menu" href="">Notas</a>
+                        <a id="notas-menu" href="">Notas</a>
                     </div>
                 </div>
 
@@ -60,17 +84,23 @@ function Mural() {
                 </div>
 
 
-                <div className="container-four">
+                <form className="container-four"onSubmit={handleCreatePost}>
                     <p className="text-comunic">Comunique-se com sua turma aqui !</p>
 
-                    <textarea id="descri-postagem" placeholder="Escreva um aviso para sua turma"></textarea>
+                    <textarea 
+                        id="descri-postagem" 
+                        placeholder="Escreva um aviso para sua turma"
+                        value={description} onChange={e => setDescription(e.target.value)} 
+                    >
+
+                    </textarea>
 
                     <button id="anexar-doc-mural" name="doc-mural">Adicionar Arquivos</button>
 
-                    <button id="postar-mural" name="postagem-mural">Postar</button>
+                    <button type="submit" id="postar-mural" name="postagem-mural">Postar</button>
 
 
-                </div>
+                </form>
 
                 <div className="mural-postagens"></div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../../services/api'
+import { Link } from 'react-router-dom';
 import './homeworks.css';
 
 function Homeworks() {
@@ -16,15 +17,15 @@ function Homeworks() {
 
                 <div className="list-names-center-atividades">
                     <div className="item-1-atividades">
-                        <a id="mural-menu-atividades" href="">Mural</a>
+                        <Link id="mural-menu-atividades" to="/mural">Mural</Link>
                     </div>
 
                     <div className="item-2-atividades">
-                        <a id="atividades-menu-atividades" href="">Atividades</a>
+                        <Link id="atividades-menu-atividades" to="/homeworks">Atividades</Link>
                     </div>
 
                     <div className="item-3-atividades">
-                        <a id="pessoas-menu-atividades" href="">Pessoas</a>
+                        <Link id="pessoas-menu-atividades" to="/persons">Pessoas</Link>
                     </div>
 
                     <div className="item-4-atividades">

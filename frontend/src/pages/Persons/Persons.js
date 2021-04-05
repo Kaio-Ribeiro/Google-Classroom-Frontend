@@ -10,6 +10,7 @@ function Persons() {
     const [teachers,setTeachers] = useState([])
     const [students,setStudents] = useState([])
     const [emailStudent,setEmailStudent] = useState('')
+    const [emailTeacher,setEmailTeacher] = useState('')
     const classID = localStorage.getItem('class_id')
     const classroom = JSON.parse(localStorage.getItem('classroom'));
 
@@ -58,6 +59,22 @@ function Persons() {
         history.push('/');
       
     }
+
+    async function inviteTeacher() {
+        const dataTeacher = {email: emailTeacher, code: classroom.code}
+        console.log(emailStudent)
+
+        try {
+            const id = await api.put('/teachers', dataTeacher)
+
+            alert('Professor adicionado')
+
+
+        }catch(err) {
+            alert('Falha ao adicionar professor')
+        }
+          
+    }
     
 
     async function sendEmail(e) {
@@ -74,7 +91,7 @@ function Persons() {
             alert('Falha no envio do e-mail')
         }
           
-      }
+    }
 
     return (
         <div>
@@ -94,11 +111,11 @@ function Persons() {
                     </div>
 
                     <div className="item-2-pessoas">
-                        <a id="atividades-menu-pessoas">Atividades</a>
+                        <Link id="atividades-menu-pessoas" to="/homeworks">Atividades</Link>
                     </div>
 
                     <div className="item-3-pessoas">
-                        <a id="pessoas-menu-pessoas">Pessoas</a>
+                        <Link id="pessoas-menu-pessoas" to="/persons">Pessoas</Link>
                     </div>
 
                     <div className="item-4-pessoas">
@@ -118,11 +135,8 @@ function Persons() {
 
                     <div className="title-professores">
                         <h1 className="title-class-professores">Professores</h1>
-                        <form className="title-professor-form" onSubmit={sendEmail}>
-
-                            <input typeName="text" className="envio-email-prof" placeholder="Convite pelo email" name="to_Email"/>
-                        
-
+                        <form className="title-professor-form" onSubmit={inviteTeacher}>
+                            <input typeName="text" className="envio-email-prof" placeholder="Convite pelo email" name="to_Email" value={emailTeacher} onChange={e => setEmailTeacher(e.target.value)}/>
                             <button type="submit" className="submit-convite-prof" name="subconvprof">Convidar</button>
                         </form>
                     </div>
