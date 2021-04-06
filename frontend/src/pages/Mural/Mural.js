@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {useLocation} from "react-router-dom";
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
@@ -13,15 +13,32 @@ function Mural() {
     const classroom = JSON.parse(localStorage.getItem('classroom'));
     const classID = localStorage.getItem('class_id')
     const userID = localStorage.getItem('userID')
+    const [files, setFiles] = useState([])
 
     function logout() {
         history.push('/');
     }
 
-    async function handleCreatePost(e) {
-        e.preventDefault()
+    function handleSelectFiles(event) {
+        if(!event.target.files) {
+            return;
+        }
 
-        const data = {description, classID}
+        const selectedFiles = Array.from(event.target.files)
+        setFiles(selectedFiles)
+    }
+
+    async function handleCreatePost(event) {
+        event.preventDefault()
+
+        const data = new FormData()
+
+        data.append('classId', String(classID))
+        data.append('description', description)
+
+        files.forEach(file => {
+            data.append('files', file)
+        })
 
         try{
             await api.post('/posts', data, {
@@ -95,7 +112,7 @@ function Mural() {
 
                     </textarea>
 
-                    <button id="anexar-doc-mural" name="doc-mural">Adicionar Arquivos</button>
+                    <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-mural[]" name="doc-mural"></input>
 
                     <button type="submit" id="postar-mural" name="postagem-mural">Postar</button>
 
