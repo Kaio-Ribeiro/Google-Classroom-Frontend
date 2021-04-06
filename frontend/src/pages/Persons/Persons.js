@@ -40,16 +40,20 @@ function Persons() {
 
     async function deleteUser(id) {
         try {
-            await api.delete(`/classroomsusers/${id}`, {
-                headers: {
-                    Authorization: classID,
-                }
-            })
+            if (window.confirm('Quer mesmo deletar essa pessoa?')) {
+                await api.delete(`/classroomsusers/${id}`, {
+                    headers: {
+                        Authorization: classID,
+                    }
+                })
 
-            alert('Deletado com sucesso.')
+                setTeachers(teachers.filter(teacher => teacher.id !== id))
+                setStudents(students.filter(student => student.id !== id))
 
-            setTeachers(teachers.filter(teacher => teacher.id !== id))
-            setStudents(students.filter(student => student.id !== id))
+                alert('Deletado com sucesso.')
+
+              }
+            
         }catch(err) {
             alert('Erro ao deletar, tente novamente.')
         }
