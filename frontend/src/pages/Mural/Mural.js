@@ -33,7 +33,9 @@ function Mural() {
 
         const data = new FormData()
 
-        data.append('classId', String(classID))
+        alert(classID)
+
+        data.append('classID', classID)
         data.append('description', description)
 
         files.forEach(file => {
