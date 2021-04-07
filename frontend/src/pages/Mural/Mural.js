@@ -33,8 +33,6 @@ function Mural() {
 
         const data = new FormData()
 
-        alert(classID)
-
         data.append('classID', classID)
         data.append('description', description)
 
