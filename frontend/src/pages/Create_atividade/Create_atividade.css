@@ -102,16 +102,30 @@ font-weight: bolder;
   background-color: rgba(128,128,128,0.1);
 }
 
-.navegacao-create-atv .info-atv1 #anexo-new-atv{
+.navegacao-create-atv .info-atv1 .doc-atv{
   position: relative;
+  max-width: 200px;
   margin-top: 25px;
-  padding: 10px;
+  
   color: rgb(32,178,170);
   font-weight: bold;
   background-color: rgb(255,255,255);
   border: solid 1px rgba(105,105,105,0.2);
   border-radius: 5px;
   font-size: 14px; 
+  
+
+  
+}
+.navegacao-create-atv .info-atv1 #anexo-new-atv{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.navegacao-create-atv .info-atv1 input[type=file]{
+  display: none;
 }
 
 .navegacao-create-atv .info-atv2{
