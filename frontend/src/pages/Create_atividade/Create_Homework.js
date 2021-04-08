@@ -3,9 +3,9 @@ import {useLocation} from "react-router-dom";
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
-import './Create_atividade.css'
+import './Create_Homework.css'
 
-function Create_atividade() {
+function Create_Homework() {
     const [title,setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [fullPoints, setFullPoints] = useState('')
@@ -25,7 +25,7 @@ function Create_atividade() {
         setFiles(selectedFiles)
     }
 
-    async function handleCreatePost(event) {
+    async function handleCreateHomework(event) {
         event.preventDefault()
 
         const data = new FormData()
@@ -40,46 +40,56 @@ function Create_atividade() {
         })
 
         try{
-            await api.post('/homeworks', data, {
-                headers: {
-                    Authorization: userID
-                }
-            })
-    
-            alert('Postagem criada!')
+            if (title === '' || description === '') {
+                alert('Preencha todos os dados!')
+                
+            }else {
+                await api.post('/homeworks', data, {
+                    headers: {
+                        Authorization: userID
+                    }
+                })
+        
+                alert('Atividade criada!')
+            }
 
         }catch(err) {
-            alert('Erro ao criar postagem')
+            alert('Erro ao criar atividade')
         }
     }
     return (
         <div className="Body-Create_atividade">
-            <div class="menu-create-atividades">
+            <div className="menu-create-atividades">
             
-                <div class="part1-create-atv">
+                <div className="part1-create-atv">
                     
-                    <a class="close-create-atv" href="">
+                    <Link className="close-create-atv" to="/homeworks">
                         X
-                    </a>
+                    </Link>
 
-                    <label class="label-atv">Atividade</label>
+                    <label className="label-atv">Atividade</label>
                 </div>
 
-                <div class="create-new-atv">
-                    <button class="btn-create-atv" type="submit" onClick={handleCreatePost}>Criar Atividade</button>
+                <div className="create-new-atv">
+                    <button className="btn-create-atv" type="submit" onClick={handleCreateHomework}>Criar Atividade</button>
                 </div>
 
             </div>
 
-            <div class="navegacao-create-atv">
-                <form class="form-new-atv">
-                    <div class="info-atv1">
+            <div className="navegacao-create-atv">
+                <form className="form-new-atv">
+                    <div className="info-atv1">
                         <input type="text" id="title-new-atv" placeholder="Titulo" name="tAtv"
                             value={title} onChange={e => setTitle(e.target.value)}
                         /> <br/>
 
-                        <textarea type="text" id="description-new-atv" name="dAtv" placeholder="Instruções (opcional)"
-                            value={description} onChange={e => setDescription(e.target.value)}
+                        <textarea 
+                            type="text" 
+                            id="description-new-atv" 
+                            name="dAtv" 
+                            placeholder="Instruções"
+                            value={description} 
+                            onChange={e => setDescription(e.target.value)} 
                         >
                         </textarea> <br/>
                         <div className="doc-atv">
@@ -88,14 +98,14 @@ function Create_atividade() {
                         </div>
                     </div>
 
-                    <div class="info-atv2">
+                    <div className="info-atv2">
 
-                        <label class="pontMax">Pontuação Máxima</label> <br/>
+                        <label className="pontMax">Pontuação Máxima</label> <br/>
                         <input type="text" name="pMaxAtv" id="pont-max"
                             value={fullPoints} onChange={e => setFullPoints(e.target.value)}
                         /> <br/>
 
-                        <label class="dataEnt">Data de Entrega</label> <br/>
+                        <label className="dataEnt">Data de Entrega</label> <br/>
                         <input type="date" id="data-ent" name="dataEntrega" value=""
                             value={dateLimit} onChange={e => setDateLimit(e.target.value)}
                         />
@@ -108,4 +118,4 @@ function Create_atividade() {
     )
 }
 
-export default Create_atividade
+export default Create_Homework

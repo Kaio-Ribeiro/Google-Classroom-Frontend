@@ -140,7 +140,7 @@ function Persons() {
                     <div className="title-professores">
                         <h1 className="title-class-professores">Professores</h1>
                         <form className="title-professor-form" onSubmit={inviteTeacher}>
-                            <input typeName="text" className="envio-email-prof" placeholder="Convite pelo email" name="to_Email" value={emailTeacher} onChange={e => setEmailTeacher(e.target.value)}/>
+                            <input typename="text" className="envio-email-prof" placeholder="Convite pelo email" name="to_Email" value={emailTeacher} onChange={e => setEmailTeacher(e.target.value)}/>
                             <button type="submit" className="submit-convite-prof" name="subconvprof">Convidar</button>
                         </form>
                     </div>

@@ -4,6 +4,19 @@ import { Link } from 'react-router-dom';
 import './homeworks.css';
 
 function Homeworks() {
+    function showDiv() {
+        let btnCriarContTurma = document.getElementById("btn-criar-cont-turma");
+        let divTipoConteudo = document.getElementsByClassName("tipo-cont")[0];
+
+        if(divTipoConteudo.style.display == "block"){
+            divTipoConteudo.style.display="none"
+        }
+
+        else{
+            divTipoConteudo.style.display="block" 
+        }
+    }
+
     return (
         <div>
             <div className="menu-suspenso-atividades">
@@ -42,13 +55,13 @@ function Homeworks() {
             <div className="navegacao-atividades">
 
                 <div className="criar-cont-turma">
-                    <button id="btn-criar-cont-turma" name="criarcontturma"> + Criar</button>
+                    <button id="btn-criar-cont-turma" name="criarcontturma" onClick={showDiv}> + Criar</button>
                 </div>
 
                 <div className="tipo-cont">
-                    <a id="tipo-cont-atv" href="">Atividade</a>
+                    <Link id="tipo-cont-atv" to="/createHomework">Atividade</Link>
                     <br/>
-                    <a id="tipo-cont-mater" href="">Material</a>
+                    <Link id="tipo-cont-mater" to="/createMaterial">Material</Link>
                 </div>
 
                 <div className="atvidades">
@@ -70,7 +83,7 @@ function Homeworks() {
                 </div>
             </div>
             
-            <script src="listener-homeworks.js"></script>
+
         </div>
     )
 }

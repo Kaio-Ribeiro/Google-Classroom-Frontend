@@ -1,37 +1,100 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import './Create_Material.css'
+import api from '../../services/api';
 
 function Create_Material() {
+    const [title,setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const classID = localStorage.getItem('class_id')
+    const userID = localStorage.getItem('userID')
+    const [files, setFiles] = useState([])
+
+    function handleSelectFiles(event) {
+        if(!event.target.files) {
+            return;
+        }
+
+        const selectedFiles = Array.from(event.target.files)
+        setFiles(selectedFiles)
+    }
+
+    async function handleCreateMaterial(event) {
+        event.preventDefault()
+
+        const data = new FormData()
+        data.append('title',title)
+        data.append('description', description)
+        data.append('classID', classID)
+
+        files.forEach(file => {
+            data.append('files', file)
+        })
+
+        try{
+            if (title === '' || description === '') {
+                alert('Preencha todos os dados!')
+                
+            }else {
+                await api.post('/materials', data, {
+                    headers: {
+                        Authorization: userID
+                    }
+                })
+        
+                alert('Material postado!')
+
+            }
+
+        }catch(err) {
+            alert('Erro ao postar material')
+        }
+    }
+    
     return(
         <div className="Body-Create_Material">
-            <div class="menu-create-material">
+            <div className="menu-create-material">
                 
-                <div class="part1-create-mat">
+                <div className="part1-create-mat">
                    
-                    <a class="close-create-mat" href="">
+                    <Link className="close-create-mat" to="/homeworks">
                         X
-                    </a>
+                    </Link>
 
-                    <label class="label-mat">Material</label>
+                    <label className="label-mat">Material</label>
                 </div>
 
                 
-                <div class="create-new-mat">
-                    <button class="btn-create-mat " type="submit">Postar</button>
+                <div className="create-new-mat">
+                    <button className="btn-create-mat " type="submit" type="submit" onClick={handleCreateMaterial}>Postar</button>
                 </div>
 
             </div>
 
 
 
-            <div class="navegacao-create-mat">
-                <form class="form-new-mat">
-                <div class="info-mat1">
-                    <input type="text" id="title-new-mat" placeholder="Titulo" name="tMat"/> 
+            <div className="navegacao-create-mat">
+                <form className="form-new-mat">
+                <div className="info-mat1">
+                    <input 
+                        type="text" id="title-new-mat" 
+                        placeholder="Titulo" 
+                        name="tMat" 
+                        value={title} 
+                        onChange={e => setTitle(e.target.value)}
+                    /> 
 
-                    <textarea type="text" id="description-new-mat" name="dMat" placeholder="Descrição (opcional)"></textarea> 
+                    <textarea 
+                        type="text" 
+                        id="description-new-mat" 
+                        name="dMat" 
+                        placeholder="Descrição"
+                        value={description} 
+                        onChange={e => setDescription(e.target.value)} 
+                    >
+                    </textarea> 
 
-                    <button id="anexo-new-mat" onClick="" >Adicionar Arquivos</button>
+                    <input type="file" multiple onChange={handleSelectFiles} name="doc-atv"></input>
 
                 </div>
                 </form>
