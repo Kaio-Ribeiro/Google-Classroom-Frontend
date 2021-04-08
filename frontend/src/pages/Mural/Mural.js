@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useLocation} from "react-router-dom";
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
@@ -13,6 +13,7 @@ function Mural() {
     const classroom = JSON.parse(localStorage.getItem('classroom'));
     const classID = localStorage.getItem('class_id')
     const userID = localStorage.getItem('userID')
+    const [posts,setPosts] = useState([])
     const [files, setFiles] = useState([])
 
     function logout() {
@@ -53,6 +54,18 @@ function Mural() {
             alert('Erro ao criar postagem')
         }
     }
+
+    useEffect(() => {
+        api.get('posts', {
+        headers: {
+            Authorization: userID,
+        }
+        },{
+
+        }).then(response => {
+            setPosts(response.data)
+        })
+    }, [userID])
 
     return (
         <div>
@@ -119,7 +132,21 @@ function Mural() {
 
                 </form>
 
-                <div className="mural-postagens"></div>
+                <div className="mural-postagens">
+                    <ul>
+                        {posts.map(post => (
+                            <li className="li-posts" key={post.id}>
+                            
+                                <div className="posts-listing">
+                                    <strong>{post.user_name}</strong>
+                                    <p className='date-time'>{post.hours} {post.day}/{post.month}/{post.year}</p>
+                                    <p>{post.description}</p>
+                                </div>
+                            
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
             </div>
         </div>

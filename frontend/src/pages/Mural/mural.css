@@ -172,3 +172,38 @@ left:1150px;
   border-radius: 5px;
   font-size: 14px;
 }
+
+.navegacao .mural-postagens ul{
+  margin-top: -40px;
+}
+
+.navegacao .mural-postagens li{
+  margin-top: -90px;
+}
+
+.navegacao .posts-listing{
+  background-color: white;
+  position:relative;
+  width: 63%;
+  max-width: 70%;
+  margin: 50px auto;
+  border-radius: 10px;
+  padding: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 7px rgb(255,255,255);
+  min-height: auto;
+}
+
+.navegacao .mural-postagens strong{
+  color: rgb(128,128,128);
+}
+
+.navegacao .mural-postagens .date-time{
+  margin-top: 30px;
+  font-size: 12px;
+}
+
+.navegacao .mural-postagens p{
+  margin-top: 30px;
+  font-size: 16px;
+}
