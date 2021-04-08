@@ -14,6 +14,7 @@ function Mural() {
     const classID = localStorage.getItem('class_id')
     const userID = localStorage.getItem('userID')
     const [posts,setPosts] = useState([])
+    const [contents_attachments,setContents_attachments] = useState([])
     const [files, setFiles] = useState([])
 
     function logout() {
@@ -141,6 +142,20 @@ function Mural() {
                                     <strong>{post.user_name}</strong>
                                     <p className='date-time'>{post.hours} {post.day}/{post.month}/{post.year}</p>
                                     <p>{post.description}</p>
+
+                                    <div>
+                                        {post.contents_attachments.map(attachment => (
+                                            //console.log(attachment.id)
+                                           //<img key={attachment.id} src={attachment.url} alt=""width="60" height="40"></img>
+                                           //<embed key={attachment.id} src={attachment.url} type="jpg"/>
+                                           //<a key={attachment.id} href={attachment.url}>
+                                               //<img src="../../images/background.png" alt="img" />
+                                           //</a>
+                                           <a key={attachment.id} href={attachment.url}>{attachment.url}</a>
+                                           
+                                            
+                                        ))}
+                                    </div>
                                 </div>
                             
                             </li>
