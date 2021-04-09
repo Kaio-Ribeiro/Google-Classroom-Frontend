@@ -186,6 +186,11 @@
     font-size: 12px;
   }
 
+  .navegacao-atividades .atvidades .full-points{
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
   .navegacao-atividades .atvidades .delivery-date{
     float: right;
     margin-top: -38px;

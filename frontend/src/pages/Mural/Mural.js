@@ -43,13 +43,19 @@ function Mural() {
         })
 
         try{
-            await api.post('/posts', data, {
-                headers: {
-                    Authorization: userID
-                }
-            })
-    
-            alert('Postagem criada!')
+            if (description === '') {
+                alert('Preencha todos os dados!')
+                
+            }else {
+                await api.post('/posts', data, {
+                    headers: {
+                        Authorization: userID
+                    }
+                })
+        
+                alert('Postagem criada!')
+                window.location.reload();
+            }
 
         }catch(err) {
             alert('Erro ao criar postagem')
@@ -140,12 +146,12 @@ function Mural() {
                             
                                 <div className="posts-listing">
                                     <strong>{post.user_name}</strong>
-                                    <p className='date-time'>{post.hours} {post.day}/{post.month}/{post.year}</p>
+                                    <p className='date-time'>Item postado em: {post.hours} {post.day}/{post.month}/{post.year}</p>
                                     <p>{post.description}</p>
                                 </div>
                             
                             </li>
-                        ))}
+                        )).reverse()}
                     </ul>
                 </div>
 

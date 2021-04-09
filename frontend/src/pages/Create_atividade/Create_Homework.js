@@ -15,6 +15,7 @@ function Create_Homework() {
     const classID = localStorage.getItem('class_id')
     const userID = localStorage.getItem('userID')
     const [files, setFiles] = useState([])
+    const history = useHistory();
 
     function handleSelectFiles(event) {
         if(!event.target.files) {
@@ -51,6 +52,7 @@ function Create_Homework() {
                 })
         
                 alert('Atividade criada!')
+                history.push('/homeworks');
             }
 
         }catch(err) {
@@ -93,7 +95,6 @@ function Create_Homework() {
                         >
                         </textarea> <br/>
                         <div className="doc-atv">
-                            <label htmlFor="anexar-doc-atv[]" id="anexo-new-atv" >Adicionar Arquivos</label>
                             <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-atv[]" name="doc-atv"></input>
                         </div>
                     </div>

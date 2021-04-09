@@ -88,14 +88,16 @@ function Homeworks() {
                                 <li key={homework.id}>
                                 
                                     <div className="homeworks-listing">
-                                        <strong>{homework.user_name}</strong>
+                                        <strong>{homework.title}</strong>
                                         <p className='date-time'>Item postado em: {homework.hours} {homework.day}/{homework.month}/{homework.year}</p>
+                                        
                                         <p className='delivery-date'>Data de entrega: {homework.hours} {homework.dayLimit}/{homework.monthLimit}/{homework.yearLimit}</p>
+                                        <p className='full-points'>Nota Máxima: {homework.fullPoints}</p>
                                         <p>{homework.description}</p>
                                     </div>
                                 
                                 </li>
-                            ))}
+                            )).reverse()}
                         </ul>
                     </div>
                 </div>

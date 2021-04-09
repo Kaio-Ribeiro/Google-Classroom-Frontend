@@ -104,9 +104,9 @@ font-weight: bolder;
 
 .navegacao-create-atv .info-atv1 .doc-atv{
   position: relative;
-  max-width: 200px;
+
   margin-top: 25px;
-  
+  width:100%;
   color: rgb(32,178,170);
   font-weight: bold;
   background-color: rgb(255,255,255);
@@ -124,9 +124,7 @@ font-weight: bolder;
   align-items: center;
   cursor: pointer;
 }
-.navegacao-create-atv .info-atv1 input[type=file]{
-  display: none;
-}
+
 
 .navegacao-create-atv .info-atv2{
   position: relative;

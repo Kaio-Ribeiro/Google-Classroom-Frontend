@@ -111,3 +111,9 @@ font-weight: bolder;
   border-radius: 5px;
   font-size: 14px; 
 }
+
+.files-material {
+  width: 75%;
+  float: right;
+  margin-right: 140px;
+}

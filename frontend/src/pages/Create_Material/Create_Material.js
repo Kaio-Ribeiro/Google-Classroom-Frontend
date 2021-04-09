@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Create_Material.css'
 import api from '../../services/api';
 
@@ -9,6 +9,7 @@ function Create_Material() {
     const classID = localStorage.getItem('class_id')
     const userID = localStorage.getItem('userID')
     const [files, setFiles] = useState([])
+    const history = useHistory();
 
     function handleSelectFiles(event) {
         if(!event.target.files) {
@@ -43,6 +44,7 @@ function Create_Material() {
                 })
         
                 alert('Material postado!')
+                history.push('/homeworks');
 
             }
 
@@ -94,7 +96,7 @@ function Create_Material() {
                     >
                     </textarea> 
 
-                    <input type="file" multiple onChange={handleSelectFiles} name="doc-atv"></input>
+                    <input className="files-material" type="file" multiple onChange={handleSelectFiles} ></input>
 
                 </div>
                 </form>
