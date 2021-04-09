@@ -161,3 +161,38 @@
   .navegacao-atividades .atvidades,.materiais .list-atv, .list-mater{
     min-height: 200px;
   }
+
+  .navegacao-atividades .atvidades .homeworks-listing{
+    border: solid 1px;
+    border-color: rgb(32,178,170);
+    background-color: white;
+    position:relative;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px rgb(255,255,255);
+    min-height: auto;
+  }
+
+  .navegacao-atividades .atvidades li{
+    margin-top: -50px;
+    width: 100%;
+  }
+  
+  .navegacao-atividades .atvidades strong{
+    color: rgb(128,128,128);
+  }
+  
+  .navegacao-atividades .atvidades .date-time{
+    font-size: 12px;
+  }
+
+  .navegacao-atividades .atvidades .delivery-date{
+    float: right;
+    margin-top: -38px;
+    font-size: 12px;
+  }
+  
+  .navegacao-atividades .atvidades p{
+    margin-top: 30px;
+    font-size: 16px;
+  }

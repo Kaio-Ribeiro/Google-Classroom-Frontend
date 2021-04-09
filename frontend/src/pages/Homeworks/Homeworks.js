@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import api from '../../services/api'
 import { Link } from 'react-router-dom';
 import './homeworks.css';
 
 function Homeworks() {
+    const [homeworks, setHomeworks] = useState([])
+    const classID = localStorage.getItem('class_id')
+
     function showDiv() {
         let btnCriarContTurma = document.getElementById("btn-criar-cont-turma");
         let divTipoConteudo = document.getElementsByClassName("tipo-cont")[0];
@@ -16,6 +19,18 @@ function Homeworks() {
             divTipoConteudo.style.display="block" 
         }
     }
+
+    useEffect(() => {
+        api.get('homeworks', {
+        headers: {
+            Authorization: classID,
+        }
+        },{
+
+        }).then(response => {
+            setHomeworks(response.data)
+        })
+    }, [classID])
 
     return (
         <div>
@@ -68,8 +83,20 @@ function Homeworks() {
                     <div className="title-atv">Atividades</div>
 
                     <div className="list-atv">
-
-
+                        <ul>
+                            {homeworks.map(homework => (
+                                <li key={homework.id}>
+                                
+                                    <div className="homeworks-listing">
+                                        <strong>{homework.user_name}</strong>
+                                        <p className='date-time'>Item postado em: {homework.hours} {homework.day}/{homework.month}/{homework.year}</p>
+                                        <p className='delivery-date'>Data de entrega: {homework.hours} {homework.dayLimit}/{homework.monthLimit}/{homework.yearLimit}</p>
+                                        <p>{homework.description}</p>
+                                    </div>
+                                
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
 
