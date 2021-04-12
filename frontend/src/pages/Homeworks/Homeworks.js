@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import api from '../../services/api'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './homeworks.css';
 
 function Homeworks() {
     const [homeworks, setHomeworks] = useState([])
     const classID = localStorage.getItem('class_id')
+    const history = useHistory()
 
     function showDiv() {
         let btnCriarContTurma = document.getElementById("btn-criar-cont-turma");
@@ -94,6 +95,10 @@ function Homeworks() {
                                         <p className='delivery-date'>Data de entrega: {homework.hours} {homework.dayLimit}/{homework.monthLimit}/{homework.yearLimit}</p>
                                         <p className='full-points'>Nota Máxima: {homework.fullPoints}</p>
                                         <p>{homework.description}</p>
+                                        <Link to={{
+                                            pathname: '/informationHomework',
+                                            state: [{id: 1, name: 'Ford', color: 'red'}]
+                                        }}>Ver atividade</Link>
                                     </div>
                                 
                                 </li>

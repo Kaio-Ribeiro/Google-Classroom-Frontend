@@ -6,6 +6,9 @@ import api from '../../services/api';
 import './Info_Home.css'
 
 function Information_Homework() {
+    const location = useLocation();
+    console.log(location.state.id)
+
     return (
         <div className="Body-InfoHome">
           
@@ -33,7 +36,7 @@ function Information_Homework() {
                 <div class="c1">
 
                       <div class="div1-c1">
-                            <h2 class="title-infohome">Titulo Aqui</h2>
+                            <h2 class="title-infohome">Asdfdfg</h2>
                       </div>
 
                       <div class="div2-c1">
