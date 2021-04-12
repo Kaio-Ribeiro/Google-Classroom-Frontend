@@ -148,6 +148,12 @@ function Mural() {
                                     <strong>{post.user_name}</strong>
                                     <p className='date-time'>Item postado em: {post.hours} {post.day}/{post.month}/{post.year}</p>
                                     <p>{post.description}</p>
+                                    <div className="img">
+                                    <img src="https://img.icons8.com/plasticine/2x/image.png" alt="Imagem da postagem"/>
+
+                                    <div className="url">
+                                        {post.attachments.map(attachment => <p>{`http://localhost:3000/uploads/${attachment.url}`}</p>)}</div>
+                                    </div>
                                 </div>
                             
                             </li>

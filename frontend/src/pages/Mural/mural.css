@@ -203,6 +203,21 @@ left:1150px;
   font-size: 12px;
 }
 
+.navegacao .posts-listing .img{
+  display: flex;
+}
+
+.navegacao .posts-listing .img img{
+  width: 100%;
+  max-width: 105px;
+  height: 100px;
+}
+
+.navegacao .posts-listing .url{
+  font-size: 12px;
+  padding-top: 20px;
+}
+
 .navegacao .mural-postagens p{
   margin-top: 30px;
   font-size: 16px;
