@@ -119,10 +119,14 @@ function Persons() {
                     </div>
 
                     <div className="item-3-pessoas">
-                        <Link id="pessoas-menu-pessoas" to="/persons">Pessoas</Link>
+                        <Link id="materiais-menu-pessoas" to="/materials">Materiais</Link>
                     </div>
 
                     <div className="item-4-pessoas">
+                        <Link id="pessoas-menu-pessoas" to="/persons">Pessoas</Link>
+                    </div>
+
+                    <div className="item-5-pessoas">
                         <a id="notas-menu-pessoas">Notas</a>
                     </div>
                 </div>

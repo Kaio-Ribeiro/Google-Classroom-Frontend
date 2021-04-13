@@ -6,6 +6,11 @@ import api from '../../services/api';
 import './Edit_Home.css'
 
 function Edit_Homework() {
+  const history = useHistory()
+  const location = useLocation();
+  const classID = localStorage.getItem('class_id')
+  const homework = location.state.homework
+
   return (
       <div className="Body-EditHome">
         <div class="menu-edit-atividades"> 
@@ -29,9 +34,9 @@ function Edit_Homework() {
           <form class="form-edit-atvd">
 
             <div class="edit-info1-atvd">
-                <input type="text" id="edit-title-atvd" placeholder="Titulo" name="tAtv"/> <br/>
+                <input type="text" id="edit-title-atvd" placeholder="Titulo" name="tAtv" value={homework.title}/> <br/>
 
-                <textarea type="text" id="edit-description-atvd" name="dAtv" placeholder="Instruções (opcional)"></textarea> <br/>
+                <textarea type="text" id="edit-description-atvd" name="dAtv" placeholder="Instruções (opcional)" value={homework.description}></textarea> <br/>
                 
                 <div class="list-anexos-edition">
                   
@@ -44,7 +49,7 @@ function Edit_Homework() {
             <div class="edit-info2-atvd">
 
                 <label class="pont-Max-edition">Pontuação Máxima</label> <br></br>
-                <input type="text" name="pMaxAtv" id="pont-max-edition"/> <br></br>
+                <input type="text" name="pMaxAtv" id="pont-max-edition" value={homework.fullPoints}/> <br></br>
 
                 <label class="data-Ent-edition">Data de Entrega</label> <br></br>
                 <input type="date" id="data-ent-edition" name="dataEntrega" value=""/>

@@ -95,8 +95,6 @@ function Mural() {
         }
     }
 
-    
-
     return (
         <div>
             <div className="menu-suspenso">
@@ -119,10 +117,14 @@ function Mural() {
                     </div>
 
                     <div className="item-3">
-                        <Link id="pessoas-menu" to="/persons">Pessoas</Link>
+                        <Link id="materiais-menu" to="/materials">Materiais</Link>
                     </div>
 
                     <div className="item-4">
+                        <Link id="pessoas-menu" to="/persons">Pessoas</Link>
+                    </div>
+
+                    <div className="item-5">
                         <a id="notas-menu" href="">Notas</a>
                     </div>
                 </div>

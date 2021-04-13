@@ -10,7 +10,15 @@ body {
 
 .btnDelete{
   float: right;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(255,255,255);
+  background-color: rgb(255,125,125);
+  border: none;
+  border-radius: 4px;
 }
+
 
 
 .navegacao .container-mural{
@@ -102,13 +110,13 @@ margin-top: -56px;
 margin-left: 190px;
 }
 
-.menu-suspenso .list-names-center .item-1, .item-2, .item-3, .item-4{
+.menu-suspenso .list-names-center .item-1, .item-2, .item-3, .item-4, .item-5{
   position: relative;
   height: 70%;
   margin-top:8px;
 }
 
-.menu-suspenso .list-names-center #mural-menu, #atividades-menu, #pessoas-menu, #notas-menu{
+.menu-suspenso .list-names-center #mural-menu, #atividades-menu, #materiais-menu, #pessoas-menu, #notas-menu{
 align-items: center;
 display: flex;
 padding: 0.125rem 1.5rem 0 1.5rem;

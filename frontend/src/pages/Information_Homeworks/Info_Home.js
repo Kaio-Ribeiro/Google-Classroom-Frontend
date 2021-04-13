@@ -6,8 +6,36 @@ import api from '../../services/api';
 import './Info_Home.css'
 
 function Information_Homework() {
+    const history = useHistory()
     const location = useLocation();
-    console.log(location.state.id)
+    const classID = localStorage.getItem('class_id')
+    const homework = location.state.homework
+
+    async function handleEditHomework(homework) {
+        history.push({
+            pathname: '/editHomework',
+            state: {homework}
+        })
+    }
+
+    async function handleDeleteHomework(id) {
+        try {
+            if (window.confirm('Quer mesmo deletar essa atividade?')) {
+                await api.delete(`/homeworks/${id}`, {
+                    headers: {
+                        Authorization: classID,
+                    }
+                })
+
+                alert('Deletado com sucesso.')
+
+                history.push('/homeworks')
+
+              }
+        } catch (err) {
+            alert('Erro ao deletar, tente novamente.')
+        }
+    }
 
     return (
         <div className="Body-InfoHome">
@@ -15,7 +43,7 @@ function Information_Homework() {
           <div class="menu-infohome">
            
               <div class="part1-infohome">
-                   <a class="back-infohome" href=""> Voltar </a>
+                   <Link class="back-infohome" to="/homeworks"> Voltar </Link>
               </div>
 
               <div class="list-names-infohome">
@@ -25,8 +53,8 @@ function Information_Homework() {
               </div>
 
               <div class="buttons-infohome">
-                   <button class="btn-edit-home">Editar</button>
-                   <button class="btn-excl-home">Excluir</button>
+                   <button class="btn-edit-home" onClick={() => handleEditHomework(homework)}>Editar</button>
+                   <button class="btn-excl-home" onClick={() => handleDeleteHomework(homework.id)}>Excluir</button>
               </div>
 
             </div>
@@ -36,16 +64,16 @@ function Information_Homework() {
                 <div class="c1">
 
                       <div class="div1-c1">
-                            <h2 class="title-infohome">Asdfdfg</h2>
+                            <h2 class="title-infohome">{homework.title}</h2>
                       </div>
 
                       <div class="div2-c1">
-                            <p id="pmax-ih"> 10 pontos</p>
-                            <p id="dentrega-ih">Data Entrega: 09/04/2021</p>
+                            <p id="pmax-ih"> {homework.fullPoints} pontos</p>
+                            <p id="dentrega-ih">Data Entrega: {homework.dayLimit}/{homework.monthLimit}/{homework.yearLimit}</p>
                       </div>
 
                       <div class="div3-c1">
-                          <p id="descri-infohome">Descrição Aqui</p>
+                          <p id="descri-infohome">{homework.description}</p>
                       </div>
 
                       <div class="div4-c1">

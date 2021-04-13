@@ -8,6 +8,14 @@ function Homeworks() {
     const classID = localStorage.getItem('class_id')
     const history = useHistory()
 
+    function logout() {
+        history.push('/'); 
+    }
+
+    function navigateToCreateHomeworks() {
+        history.push('/createHomework'); 
+    }
+
     function showDiv() {
         let btnCriarContTurma = document.getElementById("btn-criar-cont-turma");
         let divTipoConteudo = document.getElementsByClassName("tipo-cont")[0];
@@ -38,9 +46,9 @@ function Homeworks() {
             <div className="menu-suspenso-atividades">
                 <div className="part1-atividades">
                     
-                    <a className="turmas-menu-atividades" href="">
+                    <Link className="turmas-menu-atividades" to="/dashboard">
                         Turmas
-                    </a>
+                    </Link>
 
                 </div>
 
@@ -54,16 +62,20 @@ function Homeworks() {
                     </div>
 
                     <div className="item-3-atividades">
-                        <Link id="pessoas-menu-atividades" to="/persons">Pessoas</Link>
+                        <Link id="materiais-menu-atividades" to="/materials">Materiais</Link>
                     </div>
 
                     <div className="item-4-atividades">
+                        <Link id="pessoas-menu-atividades" to="/persons">Pessoas</Link>
+                    </div>
+
+                    <div className="item-5-atividades">
                         <a id="notas-menu-atividades" href="">Notas</a>
                     </div>
                 </div>
 
                 <div className="logout-atividades">
-                    <button className="btn-logout-menu-suspenso-atividades">Logout</button>
+                    <button onClick={logout} className="btn-logout-menu-suspenso-atividades">Logout</button>
                 </div>
                 
             </div>
@@ -71,7 +83,7 @@ function Homeworks() {
             <div className="navegacao-atividades">
 
                 <div className="criar-cont-turma">
-                    <button id="btn-criar-cont-turma" name="criarcontturma" onClick={showDiv}> + Criar</button>
+                    <button id="btn-criar-cont-turma" name="criarcontturma" onClick={navigateToCreateHomeworks}> + Criar</button>
                 </div>
 
                 <div className="tipo-cont">
@@ -93,26 +105,15 @@ function Homeworks() {
                                         <p className='date-time'>Item postado em: {homework.hours} {homework.day}/{homework.month}/{homework.year}</p>
                                         
                                         <p className='delivery-date'>Data de entrega: {homework.hours} {homework.dayLimit}/{homework.monthLimit}/{homework.yearLimit}</p>
-                                        <p className='full-points'>Nota Máxima: {homework.fullPoints}</p>
-                                        <p>{homework.description}</p>
                                         <Link to={{
                                             pathname: '/informationHomework',
-                                            state: [{id: 1, name: 'Ford', color: 'red'}]
+                                            state: {homework}
                                         }}>Ver atividade</Link>
                                     </div>
                                 
                                 </li>
                             )).reverse()}
                         </ul>
-                    </div>
-                </div>
-
-                <div className="materiais">
-                    <div className="title-mater">Materiais</div>
-
-                    <div className="list-mater">
-
-                        
                     </div>
                 </div>
             </div>

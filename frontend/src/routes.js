@@ -8,6 +8,7 @@ import Create_classroom from './pages/Create_classroom/Create_classroom.js';
 import Mural from './pages/Mural/Mural.js';
 import Persons from './pages/Persons/Persons.js';
 import Homeworks from './pages/Homeworks/Homeworks.js';
+import Materials from './pages/Materials/Materials.js';
 import Create_Homework from './pages/Create_atividade/Create_Homework.js';
 import Create_Material from './pages/Create_Material/Create_Material.js';
 import Information_Homework from './pages/Information_Homeworks/Info_Home.js';
@@ -32,6 +33,7 @@ export default function Routes() {
                 <Route path="/informationMaterial" component={Information_Material}/>
                 <Route path="/editHomework" component={Edit_Homework}/>
                 <Route path="/editMaterial" component={Edit_Material}/>
+                <Route path="/materials" component={Materials}/>
 
 
             </Switch>

@@ -6,13 +6,37 @@ import api from '../../services/api';
 import './Info_Mate.css'
 
 function Information_Material() {
+    const history = useHistory()
+    const location = useLocation();
+    const classID = localStorage.getItem('class_id')
+    const material = location.state.material
+
+    async function handleDeleteMaterial(id) {
+        try {
+            if (window.confirm('Quer mesmo deletar esse material?')) {
+                await api.delete(`/materials/${id}`, {
+                    headers: {
+                        Authorization: classID,
+                    }
+                })
+
+                alert('Deletado com sucesso.')
+
+                history.push('/materials')
+
+              }
+        } catch (err) {
+            alert('Erro ao deletar, tente novamente.')
+        }
+    }
+
     return (
         <div className="Body-InfoMate">
           
           <div class="menu-infomate">
            
               <div class="part1-infomate">
-                   <a class="back-infomate" href=""> Voltar </a>
+                   <Link class="back-infomate" to="/materials"> Voltar </Link>
               </div>
 
               <div class="list-names-infomate">
@@ -22,8 +46,8 @@ function Information_Material() {
               </div>
 
               <div class="buttons-infomate">
-                   <button class="btn-edit-mate">Editar</button>
-                   <button class="btn-excl-mate">Excluir</button>
+                   <button class="btn-edit-mate" >Editar</button>
+                   <button class="btn-excl-mate" onClick={() => handleDeleteMaterial(material.id)}>Excluir</button>
               </div>
 
             </div>
@@ -33,11 +57,11 @@ function Information_Material() {
                 <div class="c1mate">
 
                       <div class="div1-c1mate">
-                            <h2 class="title-infomate">Titulo Aqui</h2>
+                            <h2 class="title-infomate">{material.title}</h2>
                       </div>
 
                       <div class="div2-c1mate">
-                            <p id="descri-infomate">Descrição Aqui</p>
+                            <p id="descri-infomate">{material.description}</p>
                       </div>
 
                       <div class="div3-c1mate">

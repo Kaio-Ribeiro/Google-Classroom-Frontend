@@ -44,7 +44,7 @@ function Create_Material() {
                 })
         
                 alert('Material postado!')
-                history.push('/homeworks');
+                history.push('/materials');
 
             }
 
@@ -59,7 +59,7 @@ function Create_Material() {
                 
                 <div className="part1-create-mat">
                    
-                    <Link className="close-create-mat" to="/homeworks">
+                    <Link className="close-create-mat" to="/materials">
                         X
                     </Link>
 

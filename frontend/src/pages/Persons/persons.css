@@ -52,13 +52,13 @@
   margin-left: 190px;
   }
   
-  .menu-suspenso-pessoas .list-names-center-pessoas .item-1-pessoas, .item-2-pessoas, .item-3-pessoas, .item-4-pessoas{
+  .menu-suspenso-pessoas .list-names-center-pessoas .item-1-pessoas, .item-2-pessoas, .item-3-pessoas, .item-4-pessoas, .item-5-pessoas {
     position: relative;
     height: 70%;
     margin-top:8px;
   }
   
-  .menu-suspenso-pessoas .list-names-center-pessoas #mural-menu-pessoas, #atividades-menu-pessoas, #pessoas-menu-pessoas, #notas-menu-pessoas{
+  .menu-suspenso-pessoas .list-names-center-pessoas #mural-menu-pessoas, #atividades-menu-pessoas, #materiais-menu-pessoas, #pessoas-menu-pessoas, #notas-menu-pessoas{
   align-items: center;
   display: flex;
   padding: 0.125rem 1.5rem 0 1.5rem;

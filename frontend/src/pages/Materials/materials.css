@@ -10,7 +10,7 @@
   
   
   
-  .menu-suspenso-atividades {
+  .menu-suspenso-materiais {
   background: white;
   position: relative;
   width: 100%;
@@ -20,7 +20,7 @@
   z-index: 1;
   }
   
-  .menu-suspenso-atividades .part1-atividades{
+  .menu-suspenso-materiais .part1-materiais{
     position:relative;
     padding: 20px;
     width: 80px;
@@ -30,7 +30,7 @@
     border-radius:50px;
     border:solid 1px rgba(105,105,105,0.4);
   }
-  .menu-suspenso-atividades .turmas-menu-atividades {
+  .menu-suspenso-materiais .turmas-menu-materiais {
   position: relative;
   text-decoration: none;
   color:rgb(128,128,128) ;
@@ -40,7 +40,7 @@
   
   }
   
-  .menu-suspenso-atividades .list-names-center-atividades {
+  .menu-suspenso-materiais .list-names-center-materiais {
   position: relative;
   height: 4rem;
   justify-content: center;
@@ -51,13 +51,13 @@
   margin-left: 190px;
   }
   
-  .menu-suspenso-atividades .list-names-center-atividades .item-1-atividades, .item-2-atividades, .item-3-atividades, .item-4-atividades, .item-5-atividades {
+  .menu-suspenso-materiais .list-names-center-materiais .item-1-materiais, .item-2-materiais, .item-3-materiais, .item-4-materiais, .item-5-materiais {
     position: relative;
     height: 70%;
     margin-top:8px;
   }
   
-  .menu-suspenso-atividades .list-names-center-atividades #mural-menu-atividades, #atividades-menu-atividades, #materiais-menu-atividades, #pessoas-menu-atividades, #notas-menu-atividades{
+  .menu-suspenso-materiais .list-names-center-materiais #mural-menu-materiais, #atividades-menu-materiais, #materiais-menu-materiais, #pessoas-menu-materiais, #notas-menu-materiais{
   align-items: center;
   display: flex;
   padding: 0.125rem 1.5rem 0 1.5rem;
@@ -69,10 +69,10 @@
   font-size: 15px;
   }
   
-  .menu-suspenso-atividades .list-names-center-atividades #atividades-menu-atividades{
+  .menu-suspenso-materiais .list-names-center-materiais #materiais-menu-materiais{
     color: rgb(32,178,170);
   }
-  .menu-suspenso-atividades .logout-atividades{
+  .menu-suspenso-materiais .logout-materiais{
     position: relative;
     width: 60px;
     height: 60px;
@@ -80,7 +80,7 @@
     margin-top: -80px;
   }
   
-  .menu-suspenso-atividades .logout-atividades .btn-logout-menu-suspenso-atividades{
+  .menu-suspenso-materiais .logout-materiais .btn-logout-menu-suspenso-materiais{
   height: 55px;
   width: 55px;
   border-radius: 50%;
@@ -92,7 +92,7 @@
   left:1150px;
   }
   
-  .navegacao-atividades{
+  .navegacao-materiais{
     margin:50px auto;
     width: 61%;
     
@@ -102,7 +102,7 @@
     border-radius: 5px;
   }
   
-  .navegacao-atividades .criar-cont-turma #btn-criar-cont-turma{
+  .navegacao-materiais .criar-cont-turma #btn-criar-cont-turma{
     position: relative;
     padding: 10px;
     font-size: 15px;
@@ -117,7 +117,7 @@
   
   }
   
-  .navegacao-atividades .tipo-cont{
+  .navegacao-materiais .tipo-cont{
     background-color: rgb(255,255,255);
     position: relative;
     padding: 15px;
@@ -128,41 +128,41 @@
     display: none;
   }
   
-  .navegacao-atividades .tipo-cont #tipo-cont-atv, #tipo-cont-mater{
+  .navegacao-materiais .tipo-cont #tipo-cont-atv, #tipo-cont-mater{
     position: relative;
     text-decoration: none;
     font-size: 15px;
     color: rgb(108,108,108);
   }
-  .navegacao-atividades .tipo-cont #tipo-cont-atv:hover, #tipo-cont-mater:hover{
+  .navegacao-materiais .tipo-cont #tipo-cont-atv:hover, #tipo-cont-mater:hover{
     color: rgb(32,178,170);
   }
   
-  .navegacao-atividades .atvidades,.materiais{ 
+  .navegacao-materiais .atvidades,.materiais{ 
     position: relative;
     margin-top: 10px;
     padding: 5px;
   }
   
-  .navegacao-atividades .atvidades .title-atv{
+  .navegacao-materiais .materiais .title-mat{
     font-size:28px;
     font-weight: lighter;
     color: rgb(32,178,170);
     border-bottom: solid 1px rgb(32,178,170);
   }
   
-  .navegacao-atividades .materiais .title-mater{
+  .navegacao-materiais .materiais .title-mater{
     font-size:28px;
     font-weight: lighter;
     color: rgb(32,178,170);
     border-bottom: solid 1px rgb(32,178,170);
   }
   
-  .navegacao-atividades .atvidades,.materiais .list-atv, .list-mater{
+  .navegacao-materiais .materiais,.materiais .list-mat, .list-mater{
     min-height: 200px;
   }
 
-  .navegacao-atividades .atvidades .homeworks-listing{
+  .navegacao-materiais .materiais .materials-listing{
     border: solid 1px;
     border-color: rgb(32,178,170);
     background-color: white;
@@ -173,31 +173,31 @@
     min-height: auto;
   }
 
-  .navegacao-atividades .atvidades li{
+  .navegacao-materiais .materiais li{
     margin-top: -50px;
     width: 100%;
   }
   
-  .navegacao-atividades .atvidades strong{
+  .navegacao-materiais .materiais strong{
     color: rgb(128,128,128);
   }
   
-  .navegacao-atividades .atvidades .date-time{
+  .navegacao-materiais .materiais .date-time{
     font-size: 12px;
   }
 
-  .navegacao-atividades .atvidades .full-points{
+  .navegacao-materiais .materiais .full-points{
     margin-top: 5px;
     font-size: 12px;
   }
 
-  .navegacao-atividades .atvidades .delivery-date{
+  .navegacao-materiais .materiais .delivery-date{
     float: right;
     margin-top: -38px;
     font-size: 12px;
   }
   
-  .navegacao-atividades .atvidades p{
+  .navegacao-materiais .materiais p{
     margin-top: 30px;
     font-size: 16px;
   }
