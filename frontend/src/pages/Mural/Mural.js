@@ -74,6 +74,29 @@ function Mural() {
         })
     }, [classID])
 
+    async function handleDeletePost(id) {
+        try {
+            if (window.confirm('Quer mesmo deletar esse post?')) {
+                await api.delete(`/posts/${id}`, {
+                    headers: {
+                        Authorization: classID,
+                    }
+                })
+
+                //setTeachers(teachers.filter(teacher => teacher.id !== id))
+                //setStudents(students.filter(student => student.id !== id))
+                setPosts(posts.filter(post => post.id !== id))
+
+                alert('Deletado com sucesso.')
+
+              }
+        } catch (err) {
+            alert('Erro ao deletar, tente novamente.')
+        }
+    }
+
+    
+
     return (
         <div>
             <div className="menu-suspenso">
@@ -146,6 +169,7 @@ function Mural() {
                             
                                 <div className="posts-listing">
                                     <strong>{post.user_name}</strong>
+                                    <button className="btnDelete" onClick={() => handleDeletePost(post.id)} type="button">Excluir</button>
                                     <p className='date-time'>Item postado em: {post.hours} {post.day}/{post.month}/{post.year}</p>
                                     <p>{post.description}</p>
                                     <div className="img">
@@ -154,6 +178,7 @@ function Mural() {
                                     <div className="url">
                                         {post.attachments.map(attachment => <p>{`http://localhost:3000/uploads/${attachment.url}`}</p>)}</div>
                                     </div>
+                                    
                                 </div>
                             
                             </li>
