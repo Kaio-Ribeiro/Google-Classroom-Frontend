@@ -12,6 +12,8 @@ import Create_Homework from './pages/Create_atividade/Create_Homework.js';
 import Create_Material from './pages/Create_Material/Create_Material.js';
 import Information_Homework from './pages/Information_Homeworks/Info_Home.js';
 import Information_Material from './pages/Information_Material/Info_Mate.js';
+import Edit_Homework from './pages/Edit_Homeworks/Edit_Homeworks.js';
+import Edit_Material from './pages/Edit_Material/Edit_Material.js';
 
 export default function Routes() {
     return (
@@ -28,6 +30,9 @@ export default function Routes() {
                 <Route path="/createMaterial" component={Create_Material}/>
                 <Route path="/informationHomework" component={Information_Homework}/>
                 <Route path="/informationMaterial" component={Information_Material}/>
+                <Route path="/editHomework" component={Edit_Homework}/>
+                <Route path="/editMaterial" component={Edit_Material}/>
+
 
             </Switch>
         </BrowserRouter>
