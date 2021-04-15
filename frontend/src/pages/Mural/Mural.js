@@ -94,6 +94,17 @@ function Mural() {
             alert('Erro ao deletar, tente novamente.')
         }
     }
+//-----------------------------------------------
+    const [open, setOpen] = React.useState(false);
+    
+    const handleClickOpen = () => {
+        setOpen(true);
+      };
+    
+    const handleClose = () => {
+        setOpen(false);
+    };
+
 
     return (
         <div>
@@ -157,7 +168,7 @@ function Mural() {
 
                     </textarea>
 
-                    <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-mural[]" name="doc-mural"></input>
+                    <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-mural1" name="doc-mural"></input>
 
                     <button type="submit" id="postar-mural" name="postagem-mural">Postar</button>
 
@@ -169,9 +180,39 @@ function Mural() {
                         {posts.map(post => (
                             <li className="li-posts" key={post.id}>
                             
+                            <dialog open={open} onClose={handleClose} id="dialogo-edit-post">
+                                    <p className="title-editpost">Editar Postagem</p>
+                                    <p className="text-comunic-edit">Comunicado:</p>
+
+                                    <textarea 
+                                        id="descri-postagem-edit" 
+                                        placeholder="Escreva um aviso para sua turma"
+                                    >
+
+                                    </textarea>
+
+                                    <div class="anexos-post-edit">
+                                        Anexos                
+                                    </div>
+
+                                    <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-mural2" name="doc-mural"></input>
+
+                                    <button onClick={handleClose} id="btn-cancel-edit-post">
+                                        Cancelar
+                                    </button>
+                                    <button onClick={handleClose} id="btn-save-edit-post">
+                                        Salvar
+                                    </button>
+
+                                </dialog>
+
                                 <div className="posts-listing">
                                     <strong>{post.user_name}</strong>
+                                   
+                                    <button className="btnEditar" onClick={handleClickOpen} type="button" >Editar</button>
+
                                     <button className="btnDelete" onClick={() => handleDeletePost(post.id)} type="button">Excluir</button>
+                                    
                                     <p className='date-time'>Item postado em: {post.hours} {post.day}/{post.month}/{post.year}</p>
                                     <p>{post.description}</p>
                                     <div className="img">
@@ -189,6 +230,8 @@ function Mural() {
                 </div>
 
             </div>
+
+           
         </div>
     )
 }
