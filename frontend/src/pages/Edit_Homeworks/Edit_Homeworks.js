@@ -6,46 +6,54 @@ import api from '../../services/api';
 import './Edit_Home.css'
 
 function Edit_Homework() {
-  
-  const [title,setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [fullPoints, setFullPoints] = useState('')
-  const [dateLimit, setDateLimit] = useState('')
+  const location = useLocation();
+  const homework = location.state.homework
+  const [title,setTitle] = useState(homework.title)
+  const [description, setDescription] = useState(homework.description)
+  const [fullPoints, setFullPoints] = useState(homework.fullPoints)
+  const [dateLimit, setDateLimit] = useState(homework.dateLimit)
+  const [files, setFiles] = useState([])
 
   const history = useHistory()
-  const location = useLocation();
   const classID = localStorage.getItem('class_id')
   const userID = localStorage.getItem('userID')
-  const homework = location.state.homework
+
+  function handleSelectFiles(event) {
+    if(!event.target.files) {
+        return;
+    }
+
+    const selectedFiles = Array.from(event.target.files)
+    setFiles(selectedFiles)
+  }
 
   async function handleEditHomework(event) {
     event.preventDefault()
-
     const data = new FormData()
     data.append('title',title)
     data.append('fullPoints',fullPoints)
     data.append('description', description)
     data.append('dateLimit',dateLimit)
-    data.append('classID', classID)
+    data.append('user_id', userID)
+
+    files.forEach(file => {
+      data.append('files', file)
+    })
 
     try{
       if (title === '' || description === '') {
           alert('Preencha todos os dados!')
           
       }else {
-          await api.put('/homeworks', data, {
-              headers: {
-                  Authorization: userID
-              }
-          })
-  
+          await api.put(`/homeworks/${homework.id}`, data)
+          //alert(dateLimit)
           alert('Atividade editada!')
-          history.push('/informationHomework');
+          history.push('/homeworks');
       }
 
-  }catch(err) {
-      alert('Erro ao editar atividade')
-  }
+    }catch(err) {
+        alert('Erro ao editar atividade')
+    }
   }
 
   return (
@@ -53,9 +61,9 @@ function Edit_Homework() {
         <div class="menu-edit-atividades"> 
 
           <div class="part1-edit-atvd">
-              <a class="close-edit-atvd" href="">
+              <Link class="close-edit-atvd" to="/homeworks">
                 X
-              </a>
+              </Link>
 
               <label class="label-edit-atvd">Editar Atividade</label>
           </div>
@@ -79,7 +87,7 @@ function Edit_Homework() {
                   
                 </div>
 
-                <button id="anexo-edit-atvd" type="submit">Adicionar Arquivos</button>
+                <input id="anexo-edit-atvd" type="file" multiple onChange={handleSelectFiles}></input>
 
             </div>
 
@@ -89,7 +97,7 @@ function Edit_Homework() {
                 <input type="text" name="pMaxAtv" id="pont-max-edition" defaultValue={homework.fullPoints} onChange={e => setFullPoints(e.target.value)}/> <br></br>
 
                 <label class="data-Ent-edition">Data de Entrega</label> <br></br>
-                <input type="date" id="data-ent-edition" name="dataEntrega" defaultValue="" onChange={e => setDateLimit(e.target.value)}/>
+                <input type="date" id="data-ent-edition" name="dataEntrega" defaultValue={homework.dateLimit} onChange={e => setDateLimit(e.target.value)}/>
 
             </div>
 

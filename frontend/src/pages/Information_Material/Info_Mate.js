@@ -11,6 +11,13 @@ function Information_Material() {
     const classID = localStorage.getItem('class_id')
     const material = location.state.material
 
+    async function handleEditMaterial(material) {
+        history.push({
+            pathname: '/editMaterial',
+            state: {material}
+        })
+    }
+
     async function handleDeleteMaterial(id) {
         try {
             if (window.confirm('Quer mesmo deletar esse material?')) {
@@ -46,7 +53,7 @@ function Information_Material() {
               </div>
 
               <div class="buttons-infomate">
-                   <button class="btn-edit-mate" >Editar</button>
+                   <button class="btn-edit-mate" onClick={() => handleEditMaterial(material)}>Editar</button>
                    <button class="btn-excl-mate" onClick={() => handleDeleteMaterial(material.id)}>Excluir</button>
               </div>
 
