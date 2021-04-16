@@ -8,7 +8,7 @@ body {
   background-color: rgb(0, 191, 255);
 } 
 
-.btnDelete{
+.btnDelete-mural{
   float: right;
   position: relative;
   padding: 10px;
@@ -18,10 +18,9 @@ body {
   background-color: rgb(255,125,125);
   border: none;
   border-radius: 4px;
-  top:-38px;
 }
 
-.btnEditar{
+.btnEditar-mural{
   padding: 10px;
   font-size: 15px;
   font-weight: bold;
@@ -29,8 +28,8 @@ body {
   background-color: rgb(32,178,170);
   border: none;
   border-radius: 4px;
-  margin-left: 620px;
-  display: inline-table;
+  margin-right: 10px;
+  float: right;
 }
 
 
@@ -216,7 +215,8 @@ left:1150px;
   min-height: 320px;
   z-index: 20;
   border: solid 1px rgba(32,178,200, 0.4);
-  height: 450px;
+  height: 410px;
+  min-height: 410px;
   max-height: 600px;
   box-shadow:0px 0px 5px rgb(79,79,79);
   border-radius: 5px;
@@ -256,7 +256,7 @@ left:1150px;
   padding: 10px;
   padding: 20px;
   box-shadow: 0px 0px 7px rgb(255,255,255);
-  min-height: auto;
+  max-height: auto;
   top:-30px;
 }
 
@@ -289,6 +289,10 @@ left:1150px;
   font-size: 16px;
 }
 
+.scroll-paragraph {
+  overflow-y: scroll; height: 250px;
+}
+
 .title-editpost{
   color:rgb(32,178,170);
   font-size: 15px;
@@ -316,8 +320,8 @@ left:1150px;
   background-color: rgb(32,178,170);
   border: none;
   border-radius: 4px;
-  top:30px;
-  left:200px;
+  float: right;
+  margin-right: 10px;
 }
 
 #btn-cancel-edit-post{
@@ -329,6 +333,5 @@ left:1150px;
   background-color: rgb(255,125,125);
   border: none;
   border-radius: 4px;
-  top:30px;
-  left:190px
+  float: right;
 }

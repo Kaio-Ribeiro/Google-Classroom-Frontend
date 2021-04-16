@@ -46,7 +46,8 @@ function Mural() {
               await api.put(`/posts/${post.id}`, data)
       
               alert('Postagem editada!')
-              history.push('/mural');
+              setPostID(0);
+              setDescription('');
           }
     
         }catch(err) {
@@ -78,7 +79,6 @@ function Mural() {
                 })
         
                 alert('Postagem criada!')
-                window.location.reload();
             }
 
         }catch(err) {
@@ -96,7 +96,7 @@ function Mural() {
         }).then(response => {
             setPosts(response.data)
         })
-    }, [classID])
+    }, [posts])
 
     async function handleDeletePost(id) {
         try {
@@ -107,8 +107,6 @@ function Mural() {
                     }
                 })
 
-                //setTeachers(teachers.filter(teacher => teacher.id !== id))
-                //setStudents(students.filter(student => student.id !== id))
                 setPosts(posts.filter(post => post.id !== id))
 
                 alert('Deletado com sucesso.')
@@ -222,12 +220,12 @@ function Mural() {
 
                                         <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-mural2" name="doc-mural"></input>
 
+                                        <button onClick={() => handleClose()} id="btn-cancel-edit-post">
+                                            Cancelar
+                                        </button>
                                         
                                         <button onClick={() => handleEditPost(post)} id="btn-save-edit-post">
                                             Salvar
-                                        </button>
-                                        <button onClick={() => handleClose()} id="btn-cancel-edit-post">
-                                            Cancelar
                                         </button>
 
                                     </dialog>
@@ -235,19 +233,14 @@ function Mural() {
 
                                 <div className="posts-listing">
                                     <strong>{post.user_name}</strong>
-                                   
-                                    <button className="btnEditar" onClick={() => handleClickOpen(post.id)} type="button" >Editar</button>
 
-                                    <button className="btnDelete" onClick={() => handleDeletePost(post.id)} type="button">Excluir</button>
+                                    <button className="btnDelete-mural" onClick={() => handleDeletePost(post.id)} type="button">Excluir</button>
+                                   
+                                    <button className="btnEditar-mural" onClick={() => handleClickOpen(post.id)} type="button" >Editar</button>
                                     
                                     <p className='date-time'>Item postado em: {post.hours} {post.day}/{post.month}/{post.year}</p>
-                                    <p>{post.description}</p>
-                                    <div className="img">
-                                    <img src="https://img.icons8.com/plasticine/2x/image.png" alt="Imagem da postagem"/>
-
-                                    <div className="url">
-                                        {post.attachments.map(attachment => <p>{`http://localhost:3000/uploads/${attachment.url}`}</p>)}</div>
-                                    </div>
+                                    <p className="scroll-paragraph">{post.description}</p>
+                                   
                                     
                                 </div>
                             
