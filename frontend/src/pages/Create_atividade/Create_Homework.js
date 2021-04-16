@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
 import './Create_Homework.css'
+import addImg from '../../images/add.svg'
 
 function Create_Homework() {
     const [title,setTitle] = useState('')
@@ -15,6 +16,7 @@ function Create_Homework() {
     const classID = localStorage.getItem('class_id')
     const userID = localStorage.getItem('userID')
     const [files, setFiles] = useState([])
+    const [previewFiles, setPreviewFiles] = useState([])
     const history = useHistory();
 
     function handleSelectFiles(event) {
@@ -24,6 +26,11 @@ function Create_Homework() {
 
         const selectedFiles = Array.from(event.target.files)
         setFiles(selectedFiles)
+
+        const selectedFilesPreview = selectedFiles.map(file =>{
+            return URL.createObjectURL(file)
+        })
+        setPreviewFiles(selectedFilesPreview)
     }
 
     async function handleCreateHomework(event) {
@@ -95,8 +102,18 @@ function Create_Homework() {
                         >
                         </textarea> <br/>
                         <div className="doc-atv">
-                            <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-atv[]" name="doc-atv"></input>
+                            {previewFiles.map(file =>{
+                                return (
+                                    <img className="previ" key={file} src={file} alt=""/>
+                                )
+                            })}
+
+                            <label htmlFor="anexar-doc-atv[]" className="addImg">
+                                <img src={addImg} alt="Imagem da postagem"/>
+                            </label>
+                            
                         </div>
+                        <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-atv[]" name="doc-atv"></input>
                     </div>
 
                     <div className="info-atv2">
