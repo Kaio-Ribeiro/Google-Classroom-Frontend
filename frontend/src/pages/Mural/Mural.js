@@ -7,7 +7,7 @@ import './mural.css';
 
 function Mural() {
     const [description, setDescription] = useState('')
-
+    const [postID, setPostID] = useState()
     const history = useHistory()
     const location = useLocation();
     const classroom = JSON.parse(localStorage.getItem('classroom'));
@@ -28,6 +28,30 @@ function Mural() {
 
         const selectedFiles = Array.from(event.target.files)
         setFiles(selectedFiles)
+    }
+
+    async function handleEditPost(post) {
+        const data = new FormData()
+        data.append('description', description)
+    
+        files.forEach(file => {
+          data.append('files', file)
+        })
+    
+        try{
+          if (description === '') {
+              alert('Preencha todos os dados!')
+              
+          }else {
+              await api.put(`/posts/${post.id}`, data)
+      
+              alert('Postagem editada!')
+              history.push('/mural');
+          }
+    
+        }catch(err) {
+            alert('Erro ao editar postagem')
+        }
     }
 
     async function handleCreatePost(event) {
@@ -94,15 +118,13 @@ function Mural() {
             alert('Erro ao deletar, tente novamente.')
         }
     }
-//-----------------------------------------------
-    const [open, setOpen] = React.useState(false);
     
-    const handleClickOpen = () => {
-        setOpen(true);
-      };
+    function handleClickOpen(id){
+        setPostID(id)
+    };
     
-    const handleClose = () => {
-        setOpen(false);
+    function handleClose() {
+        setPostID(0);
     };
 
 
@@ -179,37 +201,42 @@ function Mural() {
                     <ul>
                         {posts.map(post => (
                             <li className="li-posts" key={post.id}>
-                            
-                            <dialog open={open} onClose={handleClose} id="dialogo-edit-post">
-                                    <p className="title-editpost">Editar Postagem</p>
-                                    <p className="text-comunic-edit">Comunicado:</p>
 
-                                    <textarea 
-                                        id="descri-postagem-edit" 
-                                        placeholder="Escreva um aviso para sua turma"
-                                    >
+                                {postID == post.id?
+                                    <dialog open={true} onClose={handleClose} id="dialogo-edit-post">
+                                        <p className="title-editpost">Editar Postagem</p>
+                                        <p className="text-comunic-edit">Comunicado:</p>
 
-                                    </textarea>
+                                        <textarea 
+                                            id="descri-postagem-edit" 
+                                            placeholder="Escreva um aviso para sua turma"
+                                            defaultValue={post.description}
+                                            onChange={e => setDescription(e.target.value)}
+                                        >
 
-                                    <div class="anexos-post-edit">
-                                        Anexos                
-                                    </div>
+                                        </textarea>
 
-                                    <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-mural2" name="doc-mural"></input>
+                                        <div class="anexos-post-edit">
+                                            Anexos                
+                                        </div>
 
-                                    <button onClick={handleClose} id="btn-cancel-edit-post">
-                                        Cancelar
-                                    </button>
-                                    <button onClick={handleClose} id="btn-save-edit-post">
-                                        Salvar
-                                    </button>
+                                        <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-mural2" name="doc-mural"></input>
 
-                                </dialog>
+                                        
+                                        <button onClick={() => handleEditPost(post)} id="btn-save-edit-post">
+                                            Salvar
+                                        </button>
+                                        <button onClick={() => handleClose()} id="btn-cancel-edit-post">
+                                            Cancelar
+                                        </button>
+
+                                    </dialog>
+                                : null }
 
                                 <div className="posts-listing">
                                     <strong>{post.user_name}</strong>
                                    
-                                    <button className="btnEditar" onClick={handleClickOpen} type="button" >Editar</button>
+                                    <button className="btnEditar" onClick={() => handleClickOpen(post.id)} type="button" >Editar</button>
 
                                     <button className="btnDelete" onClick={() => handleDeletePost(post.id)} type="button">Excluir</button>
                                     
