@@ -240,6 +240,18 @@ function Mural() {
                                     
                                     <p className='date-time'>Item postado em: {post.hours} {post.day}/{post.month}/{post.year}</p>
                                     <p className="scroll-paragraph">{post.description}</p>
+
+                                    <div class="d4">
+
+                                        <input type="text" id="ent-coment-infopos" name="coment-infopos" placeholder="Adicionar comentário para a turma..."/>
+
+                                        <button type="button" id="btn-postcoment-pos">Postar</button>
+                                        
+                                        <div class="listcoment-infopos">
+                                        
+                                        </div>
+                                        
+                                    </div>
                                    
                                     
                                 </div>

@@ -335,3 +335,30 @@ left:1150px;
   border-radius: 4px;
   float: right;
 }
+
+.posts-listing .d4{
+  border-top: solid 1px rgba(105,105,105,0.3);
+}
+
+.posts-listing .d4 #ent-coment-infopos{
+  border-radius: 50px;
+  width: 620px;
+  max-height: 1000px;
+  position: relative;
+}
+
+.posts-listing .d4 #btn-postcoment-pos{
+border-radius: 50px;
+border: solid 1px rgba(128,128,128,0.5);
+background-color: rgb(255,255,255);
+color:rgb(32,178,170);
+font-weight: bolder;
+margin-left: 15px;
+}
+
+.posts-listing .d4 .listcoment-infopos{
+  min-height: 1px;
+}
+
+
+
