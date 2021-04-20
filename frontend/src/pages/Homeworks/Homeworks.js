@@ -70,7 +70,7 @@ function Homeworks() {
                     </div>
 
                     <div className="item-5-atividades">
-                        <a id="notas-menu-atividades" href="">Notas</a>
+                        <Link id="notas-menu-atividades" to="/notas">Notas</Link>
                     </div>
                 </div>
 

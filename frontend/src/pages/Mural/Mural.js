@@ -156,7 +156,7 @@ function Mural() {
                     </div>
 
                     <div className="item-5">
-                        <a id="notas-menu" href="">Notas</a>
+                        <Link id="notas-menu" to="/notas">Notas</Link>
                     </div>
                 </div>
 

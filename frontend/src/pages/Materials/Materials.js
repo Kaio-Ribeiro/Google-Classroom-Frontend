@@ -58,7 +58,7 @@ function Materials() {
                     </div>
 
                     <div className="item-5-materiais">
-                        <a id="notas-menu-materiais" href="">Notas</a>
+                        <Link id="notas-menu-materiais" to="/notas">Notas</Link>
                     </div>
                 </div>
 

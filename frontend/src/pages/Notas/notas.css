@@ -1,0 +1,135 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+  }
+  
+  body {
+    margin: 0;
+    background-color: rgb(0, 191, 255);
+  } 
+  
+  
+  
+  .menu-suspenso-notas {
+    background: white;
+    position: relative;
+    width: 100%;
+    height: 85px;
+    max-height: 85px;
+    min-height: 85px;
+    z-index: 1;
+  }
+  
+  .menu-suspenso-notas .part1-notas{
+    position: relative;
+    padding: 20px;
+    width: 80px;
+    height: 20px;
+    left: 35px;
+    top: 10px;
+    border-radius: 50px;
+    border: solid 1px rgba(105,105,105,0.4);
+  }
+  .menu-suspenso-notas .turmas-menu-notas {
+    position: relative;
+    text-decoration: none;
+    color: rgb(128,128,128);
+    font-size: 16px;
+    justify-items: center;
+    font-weight: bolder;
+  }
+  
+  .menu-suspenso-notas .list-names-center-notas {
+    position: relative;
+    height: 4rem;
+    justify-content: center;
+    text-align: center;
+    width: 70%;
+    display: flex;
+    margin-top: -56px;
+    margin-left: 190px;
+  }
+  
+  .menu-suspenso-notas .list-names-center-notas .item-1-notas, .item-2-notas, .item-3-notas, .item-4-notas, .item-5-notas {
+    position: relative;
+    height: 70%;
+    margin-top:8px;
+  }
+  
+  .menu-suspenso-notas .list-names-center-notas #mural-menu-notas, #atividades-menu-notas, #materiais-menu-notas, #pessoas-menu-notas, #notas-menu-notas{
+  align-items: center;
+  display: flex;
+  padding: 0.125rem 1.5rem 0 1.5rem;
+  position: relative;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: bolder;
+  color:rgb(128,128,128);
+  font-size: 15px;
+  }
+  
+  .menu-suspenso-notas .list-names-center-notas #notas-menu-notas{
+    color: rgb(32,178,170);
+  }
+
+  .menu-suspenso-notas .logout-notas{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    margin-top: -80px;
+  }
+  
+  .menu-suspenso-notas .logout-notas .btn-logout-menu-suspenso-notas{
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  font-size: 12px;
+  border: none;
+  color:rgb(128,128,128);
+  position: relative;
+  font-weight: bolder;
+  left:1150px;
+  }
+  
+  .navegacao-notas{
+    margin:50px auto;
+    width: 61%;
+    background-color: rgb(255,255,255);
+    padding:10px;
+    box-shadow: 0px 0px 7px rgb(255,255,255);
+    border-radius: 5px;
+  }
+  
+  .navegacao-notas .notas .title-notas{
+    border-bottom: solid 1px rgb(32,178,170);
+    display: flex;
+    align-items:baseline;
+  }
+  .navegacao-notas .notas .title-notas {
+    display: flex;
+    align-items:baseline;
+
+  }
+  
+  .navegacao-notas .notas .title-notas .title-class-notas{
+    font-weight: lighter;
+    color:rgb(32,178,170);
+    display: inline-flex;
+    margin-left: 20px;
+    font-size: 24px;
+  }
+
+  strong {
+    position: absolute;
+    color:rgb(128,128,128);
+  }
+
+  
+  .lista-atividades{
+    padding: 30px;
+  }
+
+  li {
+    list-style-type: none;
+  }

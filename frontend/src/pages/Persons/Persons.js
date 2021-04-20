@@ -127,7 +127,7 @@ function Persons() {
                     </div>
 
                     <div className="item-5-pessoas">
-                        <a id="notas-menu-pessoas">Notas</a>
+                        <Link id="notas-menu-pessoas" to="/notas">Notas</Link>
                     </div>
                 </div>
 

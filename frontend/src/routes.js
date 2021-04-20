@@ -15,6 +15,7 @@ import Information_Homework from './pages/Information_Homeworks/Info_Home.js';
 import Information_Material from './pages/Information_Material/Info_Mate.js';
 import Edit_Homework from './pages/Edit_Homeworks/Edit_Homeworks.js';
 import Edit_Material from './pages/Edit_Material/Edit_Material.js';
+import Notas from './pages/Notas/Notas.js';
 
 export default function Routes() {
     return (
@@ -26,6 +27,7 @@ export default function Routes() {
                 <Route path="/createClassroom" component={Create_classroom} />
                 <Route path="/mural" component={Mural} />
                 <Route path="/persons" component={Persons} />
+                <Route path="/notas" component={Notas} />
                 <Route path="/homeworks" component={Homeworks} />
                 <Route path="/createHomework" component={Create_Homework}/>
                 <Route path="/createMaterial" component={Create_Material}/>
