@@ -2,8 +2,6 @@ import React, {useEffect,useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api'
 import './persons.css';
-import emailjs from 'emailjs-com';
-import { data } from 'jquery';
 
 function Persons() {
     const history = useHistory();
@@ -69,7 +67,7 @@ function Persons() {
         console.log(emailStudent)
 
         try {
-            const id = await api.put('/teachers', dataTeacher)
+            await api.put('/teachers', dataTeacher)
 
             alert('Professor adicionado')
 

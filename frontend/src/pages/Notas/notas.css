@@ -8,8 +8,6 @@
     background-color: rgb(0, 191, 255);
   } 
   
-  
-  
   .menu-suspenso-notas {
     background: white;
     position: relative;
@@ -132,4 +130,43 @@
 
   li {
     list-style-type: none;
+  }
+
+  .notes-atvidades {
+    min-height: 200px;
+  }
+
+  .notes-homeworks {
+    border: solid 1px;
+    border-color: rgb(32,178,170);
+    background-color: white;
+    position:relative;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px rgb(255,255,255);
+    min-height: auto;
+  }
+
+  .notas li{
+    margin-top: -50px;
+    width: 100%;
+  }
+  
+  .notas strong{
+    color: rgb(128,128,128);
+  }
+  
+  .notas .date-time{
+    font-size: 12px;
+  }
+
+  .notas .delivery-date{
+    float: right;
+    margin-top: -38px;
+    font-size: 12px;
+  }
+  
+  .notas p{
+    margin-top: 30px;
+    font-size: 16px;
   }

@@ -124,7 +124,7 @@ top:-7px;
   }
 
 
-  .navegacao-inforesponse .d2ni #title-nota-response{
+  #title-nota-response{
     color:rgb(128,128,128);
     font-weight: bold;
     font-size: 15px;
@@ -132,6 +132,7 @@ top:-7px;
     top:30px;
   }
   .navegacao-inforesponse .d2ni #nota-response{
+    color:rgb(128,128,128);
     position: relative;
     left:10px;
     top:10px;

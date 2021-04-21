@@ -6,7 +6,7 @@ import './homeworks.css';
 function Homeworks() {
     const [homeworks, setHomeworks] = useState([])
     const classID = localStorage.getItem('class_id')
-    const history = useHistory()
+    const history = useHistory() 
 
     function logout() {
         history.push('/'); 

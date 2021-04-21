@@ -1,24 +1,30 @@
-import React, {useEffect,useState} from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import api from '../../services/api'
 import './notas_alunos_atvd.css';
-import emailjs from 'emailjs-com';
-import { data } from 'jquery';
 
 function Notas_alunos_atvd() {
-    const history = useHistory();
-    const [teachers,setTeachers] = useState([])
-    const [students,setStudents] = useState([])
-    const [emailStudent,setEmailStudent] = useState('')
-    const [emailTeacher,setEmailTeacher] = useState('')
-    const classID = localStorage.getItem('class_id')
-    const classroom = JSON.parse(localStorage.getItem('classroom'));
-
+    const history = useHistory()
+    const location = useLocation()
+    const [responses, setResponses] = useState([])
+    const homework = location.state.homework
     
     function logout() {
         history.push('/');
       
     }
+
+    useEffect(() => {
+        api.get('responses', {
+        headers: {
+            Authorization: homework.id,
+        }
+        },{
+
+        }).then(response => {
+            setResponses(response.data)
+        })
+    }, [homework.id])
 
     return (
     <div>
@@ -42,34 +48,41 @@ function Notas_alunos_atvd() {
                 </div>
             </div>
             <div class="logout-notas-part2">
-                <button class="btn-logout-menu-suspenso-notas-part2">Logout</button>
+                <button class="btn-logout-menu-suspenso-notas-part2" onClick={logout}>Logout</button>
             </div>
         </div>
         <div class="navegacao-notas-part2">
             <div class="notas-part2">
                 <div class="title-notas-part2">
-                    <h1 class="title-class-notas-part2">Atividade X</h1>
+                    <h1 class="title-class-notas-part2">Respostas dos alunos</h1>
                 </div>
                 <div class="lista-atividades-part2">
+                    {responses.map(response => (
                         <table width="100%" class="notas-itens-part2">
                              <thead class="itens-notas-01-part2">
                                  <tr>
-                                     <th>Alunos</th>
-                                     <th>Prazo para Entrega</th>
+                                     <th>Aluno</th>
+                                     <th>Entrege em</th>
                                      <th>Data de Entrega</th>
                                      <th>Nota</th>
                                  </tr>
                              </thead>
                              <tbody class="itens-notas-02-part2">
                                  <tr>
-                                     <td>Kaio Anderson</td>
-                                     <td>20/04/2021</td>
-                                     <td>15/04/2021</td>
-                                     <td>10</td>
+                                     <td>{response.name}</td>
+                                     <td>{response.day}/{response.month}/{response.year}</td>
+                                     <td>{response.dayLimit}/{response.monthLimit}/{response.yearLimit}</td>
+                                     <td>{response.note}</td>
                                  </tr>
-                                
                              </tbody>
-                         </table>
+                             <div className="link">
+                                <Link to={{
+                                    pathname: '/infoResponse',
+                                    state: {response}
+                                }}>Ver detalhes</Link>
+                            </div>
+                        </table>
+                    )).reverse()}
                 </div>
             </div>
         </div>

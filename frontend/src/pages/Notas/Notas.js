@@ -2,23 +2,27 @@ import React, {useEffect,useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api'
 import './notas.css';
-import emailjs from 'emailjs-com';
-import { data } from 'jquery';
 
 function Notas() {
     const history = useHistory();
-    const [teachers,setTeachers] = useState([])
-    const [students,setStudents] = useState([])
-    const [emailStudent,setEmailStudent] = useState('')
-    const [emailTeacher,setEmailTeacher] = useState('')
+    const [homeworks, setHomeworks] = useState([])
     const classID = localStorage.getItem('class_id')
-    const classroom = JSON.parse(localStorage.getItem('classroom'));
-
     
     function logout() {
         history.push('/');
-      
     }
+
+    useEffect(() => {
+        api.get('homeworks', {
+        headers: {
+            Authorization: classID,
+        }
+        },{
+
+        }).then(response => {
+            setHomeworks(response.data)
+        })
+    }, [classID])
 
     return (
         <div>
@@ -50,13 +54,26 @@ function Notas() {
         <div class="navegacao-notas">
             <div class="notas">
                 <div class="title-notas">
-                    <h1 class="title-class-notas">Lista de Atividades</h1>
+                    <h1 class="title-class-notas">Atividades</h1>
                 </div>
-                <div class="lista-atividades">
+                <div class="notes-atividades">
                     <ul>
-                        <li>
-                            <strong> Atividade x </strong>
-                        </li>
+                        {homeworks.map(homework => (
+                            <li key={homework.id}>
+                            
+                                <div className="notes-homeworks">
+                                    <strong>{homework.title}</strong>
+                                    <p className='date-time'>Item postado em: {homework.hours} {homework.day}/{homework.month}/{homework.year}</p>
+                                    
+                                    <p className='delivery-date'>Data de entrega: {homework.hours} {homework.dayLimit}/{homework.monthLimit}/{homework.yearLimit}</p>
+                                    <Link to={{
+                                        pathname: '/notasAlunos',
+                                        state: {homework}
+                                    }}>Respostas dos alunos</Link>
+                                </div>
+                            
+                            </li>
+                        )).reverse()}
                     </ul>
                 </div>
             </div>

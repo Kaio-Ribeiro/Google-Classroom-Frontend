@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import {useLocation} from "react-router-dom";
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
@@ -11,8 +10,6 @@ function Create_Homework() {
     const [description, setDescription] = useState('')
     const [fullPoints, setFullPoints] = useState('')
     const [dateLimit, setDateLimit] = useState('')
-
-    const classroom = JSON.parse(localStorage.getItem('classroom'));
     const classID = localStorage.getItem('class_id')
     const userID = localStorage.getItem('userID')
     const [files, setFiles] = useState([])

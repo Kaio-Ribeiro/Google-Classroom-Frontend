@@ -9,12 +9,10 @@ function Mural() {
     const [description, setDescription] = useState('')
     const [postID, setPostID] = useState()
     const history = useHistory()
-    const location = useLocation();
     const classroom = JSON.parse(localStorage.getItem('classroom'));
     const classID = localStorage.getItem('class_id')
     const userID = localStorage.getItem('userID')
     const [posts,setPosts] = useState([])
-    const [contents_attachments,setContents_attachments] = useState([])
     const [files, setFiles] = useState([])
 
     function logout() {
@@ -200,7 +198,7 @@ function Mural() {
                         {posts.map(post => (
                             <li className="li-posts" key={post.id}>
 
-                                {postID == post.id?
+                                {postID === post.id?
                                     <dialog open={true} onClose={handleClose} id="dialogo-edit-post">
                                         <p className="title-editpost">Editar Postagem</p>
                                         <p className="text-comunic-edit">Comunicado:</p>
