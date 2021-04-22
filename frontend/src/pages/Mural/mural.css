@@ -360,5 +360,30 @@ margin-left: 15px;
   min-height: 1px;
 }
 
+.listcoment-infopos {
+  align-items: center;
+}
 
+.dialogComment {
+  background-color: white;
+  position:relative;
+  width: 98%;
+  border-radius: 10px;
+  border: solid 1px #ccc;
+  max-height: auto;
+}
 
+.dialogComment .div-comment #comments-strong{
+  margin-top: 0px;
+  color: rgb(128,128,128);
+}
+
+.dialogComment .div-comment #comments-paragraph{
+  margin-top: 30px;
+  font-size: 12px;
+}
+
+.dialogComment .div-comment #comments-message{
+  margin-top: 15px;
+  font-size: 15px;
+}

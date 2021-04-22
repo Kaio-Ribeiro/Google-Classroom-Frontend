@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import {useLocation} from "react-router-dom";
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
@@ -8,15 +7,29 @@ import './mural.css';
 function Mural() {
     const [description, setDescription] = useState('')
     const [postID, setPostID] = useState()
+    const [check, setCheck] = useState()
     const history = useHistory()
     const classroom = JSON.parse(localStorage.getItem('classroom'));
     const classID = localStorage.getItem('class_id')
     const userID = localStorage.getItem('userID')
     const [posts,setPosts] = useState([])
+    const [comments,setComments] = useState([])
     const [files, setFiles] = useState([])
 
     function logout() {
         history.push('/');
+    }
+
+    async function handleComments(id) {
+        const response = await api.get('/comment-post', {
+            headers: {
+                Authorization: id
+            }
+        })
+
+        setComments(response.data)
+        handleOpenComments(id)
+        console.log(response.data)
     }
 
     function handleSelectFiles(event) {
@@ -93,8 +106,9 @@ function Mural() {
 
         }).then(response => {
             setPosts(response.data)
+            setComments(response.data)
         })
-    }, [posts])
+    }, [classID])
 
     async function handleDeletePost(id) {
         try {
@@ -123,6 +137,14 @@ function Mural() {
         setPostID(0);
     };
 
+
+    function handleOpenComments(id){
+        setCheck(id)
+    };
+    
+    function handleCloseComments() {
+        setCheck(0);
+    };
 
     return (
         <div>
@@ -244,9 +266,19 @@ function Mural() {
                                         <input type="text" id="ent-coment-infopos" name="coment-infopos" placeholder="Adicionar comentário para a turma..."/>
 
                                         <button type="button" id="btn-postcoment-pos">Postar</button>
-                                        
+                                        <button onClick={() => handleComments(post.id)}>teste</button>
                                         <div class="listcoment-infopos">
-                                        
+                                            {check === post.id?
+                                                <dialog className="dialogComment" open={true}>
+                                                    {comments.map(comment => (
+                                                        <div className="div-comment">
+                                                            <strong id="comments-strong">{comment.user_name}</strong>
+                                                            <p id="comments-paragraph">Comentário postado em: {comment.hours} {comment.day}/{comment.month}/{comment.year}</p>
+                                                            <p id="comments-message">{comment.message}</p>
+                                                        </div>
+                                                    ))}
+                                                </dialog>
+                                            : null}
                                         </div>
                                         
                                     </div>
