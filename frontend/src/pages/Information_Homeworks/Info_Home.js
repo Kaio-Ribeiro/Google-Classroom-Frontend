@@ -157,7 +157,7 @@ function Information_Homework() {
                     <button type="button" id="btn-postcoment-infohome" onClick={() => handleCreateComment(homework.id)}>Postar</button>
                 </div>
 
-                <button id="todos-coment" onClick={() => handleComments(homework.id)}>Visualizar todos os comentários</button>
+                <button id="todos-coment-infoHome" onClick={() => handleComments(homework.id)}>Visualizar todos os comentários</button>
                 <div class="c3-listcoment-infohome">
                         <dialog className="dialogComment" open={check}>
                             {comments.map(comment => (

@@ -152,7 +152,7 @@ function Information_Material() {
                     <button type="button" id="btn-postcoment-infomate" onClick={() => handleCreateComment(material.id)}>Postar</button>
                 </div>
 
-                <button id="todos-coment" onClick={() => handleComments(material.id)}>Visualizar todos os comentários</button>
+                <button id="todos-coment-infoMat" onClick={() => handleComments(material.id)}>Visualizar todos os comentários</button>
                 <div class="c3-listcoment-infomate">
                     <dialog className="dialogComment" open={check}>
                         {comments.map(comment => (

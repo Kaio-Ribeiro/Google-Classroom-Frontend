@@ -152,6 +152,8 @@ top:-7px;
 
 .navegacao-infomate .c2mate #title-coment-mate{
   color: rgb(128,128,128);
+  margin: 7px;
+  margin-left: -5px;
 }
 
 
@@ -160,6 +162,8 @@ top:-7px;
   width: 650px;
   max-height: 1000px;
   display:inline-table;
+  margin-left: -10px;
+  outline-style: none;
 }
 
 .navegacao-infomate .c2mate #btn-postcoment-infomate{
@@ -168,11 +172,22 @@ top:-7px;
   background-color: rgb(255,255,255);
   color:rgb(32,178,170);
   font-weight: bolder;
-margin-left: 15px;
+  margin-left: 12px;
 }
 
 .navegacao-infomate .c3-listcoment-infomate{
   position: relative;
   margin-top: -20px;
   max-height: 20000px;
+}
+
+#todos-coment-infoMat{
+    background: none;
+    border: none;
+    margin: 7px;
+    font-size: 10px;
+    color: rgb(32,178,170);
+    cursor: pointer;
+    padding-left: 251px;
+    margin-top: -17px;
 }
