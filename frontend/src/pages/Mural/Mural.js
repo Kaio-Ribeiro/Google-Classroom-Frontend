@@ -266,7 +266,7 @@ function Mural() {
                                         <input type="text" id="ent-coment-infopos" name="coment-infopos" placeholder="Adicionar comentário para a turma..."/>
 
                                         <button type="button" id="btn-postcoment-pos">Postar</button>
-                                        <button onClick={() => handleComments(post.id)}>teste</button>
+                                        <button id="todos-coment" onClick={() => handleComments(post.id)}>Visualizar todos os comentários</button>
                                         <div class="listcoment-infopos">
                                             {check === post.id?
                                                 <dialog className="dialogComment" open={true}>
@@ -277,8 +277,10 @@ function Mural() {
                                                             <p id="comments-message">{comment.message}</p>
                                                         </div>
                                                     ))}
+                                                    <button id="close-coment" onClick={() => handleCloseComments(post.id)}>Ocultar todos os comentários</button>
                                                 </dialog>
                                             : null}
+                                            
                                         </div>
                                         
                                     </div>
@@ -292,8 +294,6 @@ function Mural() {
                 </div>
 
             </div>
-
-           
         </div>
     )
 }

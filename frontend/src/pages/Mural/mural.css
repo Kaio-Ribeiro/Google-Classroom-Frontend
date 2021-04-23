@@ -8,6 +8,22 @@ body {
   background-color: rgb(0, 191, 255);
 } 
 
+#todos-coment{
+    background: none;
+    border: none;
+    margin: 7px;
+    font-size: 10px;
+    color: rgb(32,178,170);
+    cursor: pointer;
+}
+#close-coment{
+  background: none;
+    border: none;
+    margin: 7px;
+    font-size: 10px;
+    color: rgb(128,128,128);
+    cursor: pointer;
+}
 .btnDelete-mural{
   float: right;
   position: relative;
@@ -345,6 +361,7 @@ left:1150px;
   width: 620px;
   max-height: 1000px;
   position: relative;
+  outline-style: none;
 }
 
 .posts-listing .d4 #btn-postcoment-pos{
@@ -354,6 +371,7 @@ background-color: rgb(255,255,255);
 color:rgb(32,178,170);
 font-weight: bolder;
 margin-left: 15px;
+cursor: pointer;
 }
 
 .posts-listing .d4 .listcoment-infopos{
