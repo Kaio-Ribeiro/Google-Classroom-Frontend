@@ -13,11 +13,12 @@ function Notas_alunos_atvd() {
         history.push('/');
       
     }
+    console.log(homework.id)
 
     useEffect(() => {
         api.get('responses', {
         headers: {
-            Authorization: homework.id,
+            Authorization: homework.homework_id,
         }
         },{
 

@@ -95,7 +95,7 @@ function Materials() {
                                         <Link to={{
                                             pathname: '/informationMaterial',
                                             state: {material}
-                                        }}>Ver atividade</Link>
+                                        }}>Ver material</Link>
                                     </div>
                                 
                                 </li>

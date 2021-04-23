@@ -12,6 +12,8 @@ function Notas() {
         history.push('/');
     }
 
+    console.log(classID)
+
     useEffect(() => {
         api.get('homeworks', {
         headers: {

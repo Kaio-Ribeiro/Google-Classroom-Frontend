@@ -69,7 +69,7 @@ function Student_Response(){
                 <p id="title-aluno-response">Aluno:</p><br></br>
                 <p id="nome-aluno-response">{response.name}</p>
 
-                <p id="title-nota-response">Pontuação Máxima:</p><br></br>
+                <p id="title-nota-response">Pontuação Atual:</p><br></br>
                 <p id="nota-response">{response.note}</p>
 
               </div>
