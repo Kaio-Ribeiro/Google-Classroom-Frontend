@@ -21,7 +21,6 @@ function Login() {
 
             localStorage.setItem('userID', response.data.id)
             localStorage.setItem('userEmail', email)
-       
 
             history.push('/dashboard');
 

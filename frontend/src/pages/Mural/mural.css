@@ -391,6 +391,10 @@ cursor: pointer;
   max-height: auto;
 }
 
+.div-comment {
+  max-height: auto;
+}
+
 .dialogComment .div-comment #comments-strong{
   margin-top: 0px;
   color: rgb(128,128,128);
@@ -404,4 +408,16 @@ cursor: pointer;
 .dialogComment .div-comment #comments-message{
   margin-top: 15px;
   font-size: 15px;
+  word-wrap:break-word;
+}
+
+.deleteComment {
+  float: right;
+  position: relative;
+
+  font-weight: bold;
+  color: rgb(255,255,255);
+  background-color: rgb(255,125,125);
+  border: none;
+  border-radius: 4px;
 }

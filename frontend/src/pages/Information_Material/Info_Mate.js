@@ -10,6 +10,66 @@ function Information_Material() {
     const location = useLocation();
     const classID = localStorage.getItem('class_id')
     const material = location.state.material
+    const userID = localStorage.getItem('userID')
+    const [comments,setComments] = useState([])
+    const [check, setCheck] = useState(false)
+    const [message, setMessage] = useState('')
+
+    async function handleComments(id) {
+        const response = await api.get('/comment', {
+            headers: {
+                Authorization: id
+            }
+        })
+
+        setComments(response.data)
+        handleOpenComments()
+    }
+
+    async function handleCreateComment(id) {
+        const data = {user_id: userID, comment: message}
+
+        try{
+            if (message === '') {
+                alert('Preencha o campo de comentários!')
+                
+            }else {
+                await api.post('/comment' , data, {
+                    headers: {
+                        Authorization: id
+                    }
+                })
+        
+                alert('Comentário adicionado!')
+                setMessage('');
+            }
+      
+          }catch(err) {
+              alert('Erro ao adicionar comentário')
+          }
+          handleComments(id)
+    }
+
+    async function handleDeleteComment(comment) {
+
+        try{
+            await api.delete(`/comment/${comment.id}`)
+    
+            alert('Comentário deletado!')
+            handleComments(comment.content_id)
+
+          }catch(err) {
+              alert('Erro ao deletar comentário')
+          }
+    }
+
+    function handleOpenComments(){
+        setCheck(true)
+    };
+    
+    function handleCloseComments() {
+        setCheck(false);
+    };
 
     async function handleEditMaterial(material) {
         history.push({
@@ -80,13 +140,34 @@ function Information_Material() {
                 <div class="c2mate">
                     <p id="title-coment-mate">Comentários da turma</p>
 
-                    <input type="text" id="ent-coment-infomate" name="coment-infomate" placeholder="Adicionar comentário para a turma..."/>
+                    <input 
+                        type="text" 
+                        id="ent-coment-infomate" 
+                        name="coment-infomate" 
+                        placeholder="Adicionar comentário para a turma..."
+                        value={message} 
+                        onChange={e => setMessage(e.target.value)}
+                    />
 
-                    <button type="button" id="btn-postcoment-infomate">Postar</button>
+                    <button type="button" id="btn-postcoment-infomate" onClick={() => handleCreateComment(material.id)}>Postar</button>
                 </div>
 
+                <button id="todos-coment" onClick={() => handleComments(material.id)}>Visualizar todos os comentários</button>
                 <div class="c3-listcoment-infomate">
-                  
+                    <dialog className="dialogComment" open={check}>
+                        {comments.map(comment => (
+                            <div className="div-comment">
+                                <strong id="comments-strong">{comment.user_name}</strong>
+                                {comment.user_id == userID? 
+                                    <button className="deleteComment" onClick={() => handleDeleteComment(comment)}>Excluir</button>
+                                : null}
+                                <p id="comments-paragraph">Comentário postado em: {comment.hours} {comment.day}/{comment.month}/{comment.year}</p>
+                                <p id="comments-message">{comment.message}</p>
+                                
+                            </div>
+                        ))}
+                        <button id="close-coment" onClick={() => handleCloseComments()}>Ocultar todos os comentários</button>
+                    </dialog>
                 </div>
 
             </div>

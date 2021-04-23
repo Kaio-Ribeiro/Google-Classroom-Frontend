@@ -6,6 +6,7 @@ import './mural.css';
 
 function Mural() {
     const [description, setDescription] = useState('')
+    const [message, setMessage] = useState('')
     const [postID, setPostID] = useState()
     const [check, setCheck] = useState()
     const history = useHistory()
@@ -21,7 +22,7 @@ function Mural() {
     }
 
     async function handleComments(id) {
-        const response = await api.get('/comment-post', {
+        const response = await api.get('/comment', {
             headers: {
                 Authorization: id
             }
@@ -29,7 +30,43 @@ function Mural() {
 
         setComments(response.data)
         handleOpenComments(id)
-        console.log(response.data)
+    }
+
+    async function handleDeleteComment(comment) {
+
+        try{
+            await api.delete(`/comment/${comment.id}`)
+    
+            alert('Comentário deletado!')
+            handleComments(comment.content_id)
+
+          }catch(err) {
+              alert('Erro ao deletar comentário')
+          }
+    }
+
+    async function handleCreateComment(id) {
+        const data = {user_id: userID, comment: message}
+
+        try{
+            if (message === '') {
+                alert('Preencha o campo de comentários!')
+                
+            }else {
+                await api.post('/comment' , data, {
+                    headers: {
+                        Authorization: id
+                    }
+                })
+        
+                alert('Comentário adicionado!')
+                setMessage('');
+            }
+      
+          }catch(err) {
+              alert('Erro ao adicionar comentário')
+          }
+          handleComments(id)
     }
 
     function handleSelectFiles(event) {
@@ -88,7 +125,7 @@ function Mural() {
                         Authorization: userID
                     }
                 })
-        
+
                 alert('Postagem criada!')
             }
 
@@ -106,7 +143,6 @@ function Mural() {
 
         }).then(response => {
             setPosts(response.data)
-            setComments(response.data)
         })
     }, [classID])
 
@@ -263,9 +299,9 @@ function Mural() {
 
                                     <div class="d4">
 
-                                        <input type="text" id="ent-coment-infopos" name="coment-infopos" placeholder="Adicionar comentário para a turma..."/>
+                                        <input type="text" id="ent-coment-infopos" name="coment-infopos" placeholder="Adicionar comentário para a turma..." value={message} onChange={e => setMessage(e.target.value)}/>
 
-                                        <button type="button" id="btn-postcoment-pos">Postar</button>
+                                        <button type="button" id="btn-postcoment-pos" onClick={() => handleCreateComment(post.id)}>Postar</button>
                                         <button id="todos-coment" onClick={() => handleComments(post.id)}>Visualizar todos os comentários</button>
                                         <div class="listcoment-infopos">
                                             {check === post.id?
@@ -273,8 +309,12 @@ function Mural() {
                                                     {comments.map(comment => (
                                                         <div className="div-comment">
                                                             <strong id="comments-strong">{comment.user_name}</strong>
+                                                            {comment.user_id == userID? 
+                                                                <button className="deleteComment" onClick={() => handleDeleteComment(comment)}>Excluir</button>
+                                                            : null}
                                                             <p id="comments-paragraph">Comentário postado em: {comment.hours} {comment.day}/{comment.month}/{comment.year}</p>
                                                             <p id="comments-message">{comment.message}</p>
+                                                            
                                                         </div>
                                                     ))}
                                                     <button id="close-coment" onClick={() => handleCloseComments(post.id)}>Ocultar todos os comentários</button>
