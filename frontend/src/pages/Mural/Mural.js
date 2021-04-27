@@ -297,12 +297,24 @@ function Mural() {
                                     <p className='date-time'>Item postado em: {post.hours} {post.day}/{post.month}/{post.year}</p>
                                     <p className="scroll-paragraph">{post.description}</p>
 
+                                    <div>
+                                        {post.id == 6?
+                                            post.attachments.map(attachment => (
+                                                <div>
+                                                    <button onClick={()=> window.open(`http://localhost:3333/uploads/${attachment.url}`, "_blank")}>{attachment.url}</button>
+                                                    <p>{attachment.type}</p>
+                                                </div>
+                                            ))
+                                        :null}
+                                    </div>
+
                                     <div class="d4">
 
                                         <input type="text" id="ent-coment-infopos" name="coment-infopos" placeholder="Adicionar comentário para a turma..." value={message} onChange={e => setMessage(e.target.value)}/>
 
                                         <button type="button" id="btn-postcoment-pos" onClick={() => handleCreateComment(post.id)}>Postar</button>
                                         <button id="todos-coment" onClick={() => handleComments(post.id)}>Visualizar todos os comentários</button>
+                                        
                                         <div class="listcoment-infopos">
                                             {check === post.id?
                                                 <dialog className="dialogComment" open={true}>
