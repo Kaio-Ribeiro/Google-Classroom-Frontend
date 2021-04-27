@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
+import anx from '../../images/anx.png';
 
 import './mural.css';
 
@@ -297,12 +298,13 @@ function Mural() {
                                     <p className='date-time'>Item postado em: {post.hours} {post.day}/{post.month}/{post.year}</p>
                                     <p className="scroll-paragraph">{post.description}</p>
 
-                                    <div>
+                                    <div class="anxList">
                                         {post.id == 6?
                                             post.attachments.map(attachment => (
                                                 <div>
-                                                    <button onClick={()=> window.open(`http://localhost:3333/uploads/${attachment.url}`, "_blank")}>{attachment.url}</button>
-                                                    <p>{attachment.type}</p>
+                                                    <img id="imAnx" src={anx}/>
+                                                    <button id="anxItem" onClick={()=> window.open(`http://localhost:3333/uploads/${attachment.url}`, "_blank")}>{attachment.url}</button> <br></br>
+                                                    <span id="esp">Imagem</span>
                                                 </div>
                                             ))
                                         :null}
