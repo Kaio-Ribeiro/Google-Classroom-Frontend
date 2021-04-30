@@ -46,6 +46,18 @@ function Mural() {
           }
     }
 
+    async function handleDeleteAttachment(id) {
+
+        try{
+            await api.delete(`/attachment/${id}`)
+    
+            alert('Anexo deletado!')
+
+          }catch(err) {
+              alert('Erro ao deletar anexo')
+          }
+    }
+
     async function handleCreateComment(id) {
         const data = {user_id: userID, comment: message}
 
@@ -97,6 +109,7 @@ function Mural() {
               alert('Postagem editada!')
               setPostID(0);
               setDescription('');
+              setFiles([])
           }
     
         }catch(err) {
@@ -128,6 +141,8 @@ function Mural() {
                 })
 
                 alert('Postagem criada!')
+                setDescription('');
+                setFiles([])
             }
 
         }catch(err) {
@@ -145,7 +160,7 @@ function Mural() {
         }).then(response => {
             setPosts(response.data)
         })
-    }, [classID])
+    }, [classID, posts])
 
     async function handleDeletePost(id) {
         try {
@@ -272,7 +287,20 @@ function Mural() {
                                         </textarea>
 
                                         <div class="anexos-post-edit">
-                                            Anexos                
+                                            Anexos
+
+                                         
+                                            {post.attachments !== []?
+                                                post.attachments.map(attachment => (
+                                                    <div>
+                                                        <img id="imAnx" src={anx}/>
+                                                        <button id="anxItem" onClick={()=> window.open(`http://localhost:3333/uploads/${attachment.path}`, "_blank")}>{attachment.path}</button> <br></br>
+                                                        <span id="esp">{attachment.type}</span>
+                                                        <button className="deleteAttachment" onClick={() => handleDeleteAttachment(attachment.id)}>Excluir</button>
+                                                    </div>
+                                                ))
+                                            :null}
+                                                   
                                         </div>
 
                                         <input type="file" multiple onChange={handleSelectFiles} id="anexar-doc-mural2" name="doc-mural"></input>
@@ -299,12 +327,12 @@ function Mural() {
                                     <p className="scroll-paragraph">{post.description}</p>
 
                                     <div class="anxList">
-                                        {post.id == 6?
+                                        {post.attachments !== []?
                                             post.attachments.map(attachment => (
                                                 <div>
                                                     <img id="imAnx" src={anx}/>
-                                                    <button id="anxItem" onClick={()=> window.open(`http://localhost:3333/uploads/${attachment.url}`, "_blank")}>{attachment.url}</button> <br></br>
-                                                    <span id="esp">Imagem</span>
+                                                    <button id="anxItem" onClick={()=> window.open(`http://localhost:3333/uploads/${attachment.path}`, "_blank")}>{attachment.path}</button> <br></br>
+                                                    <span id="esp">{attachment.type}</span>
                                                 </div>
                                             ))
                                         :null}

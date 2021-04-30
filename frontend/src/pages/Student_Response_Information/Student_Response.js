@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {useLocation} from "react-router-dom";
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
+import anx from '../../images/anx.png';
 
 import './Student_Response.css'
 
@@ -81,7 +82,17 @@ function Student_Response(){
                 <p id="title-anxr">Respostas Anexadas:</p>
 
                 <div id="list-anxr">
-
+                  <div class="anxList">
+                      {response.attachments !== []?
+                          response.attachments.map(attachment => (
+                              <div>
+                                  <img id="imAnx" src={anx}/>
+                                  <button id="anxItem" onClick={()=> window.open(`http://localhost:3333/uploads/${attachment.path}`, "_blank")}>{attachment.path}</button> <br></br>
+                                  <span id="esp">{attachment.type}</span>
+                              </div>
+                          ))
+                      :null}
+                  </div>
                 </div>
               </div>
 

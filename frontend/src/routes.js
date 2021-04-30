@@ -36,7 +36,7 @@ export default function Routes() {
                 <Route path="/createMaterial" component={Create_Material}/>
                 <Route path="/informationHomework" component={Information_Homework}/>
                 <Route path="/informationMaterial" component={Information_Material}/>
-                <Route path="/editHomework" component={Edit_Homework}/>
+                <Route path="/editHomework/:id" component={Edit_Homework}/>
                 <Route path="/editMaterial" component={Edit_Material}/>
                 <Route path="/materials" component={Materials}/>
                 <Route path="/infoResponse" component={Info_Response}/>

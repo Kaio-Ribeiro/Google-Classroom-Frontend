@@ -1,22 +1,33 @@
-import React, { useState, useRoute } from 'react'
+import React, { useState, useEffect, useRoute } from 'react'
 import {useLocation} from "react-router-dom";
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import api from '../../services/api';
+import anx from '../../images/anx.png';
 
 import './Edit_Home.css'
 
 function Edit_Homework() {
   const location = useLocation();
+  const { id } = useParams();
+  //const [homework, setHomework] = useState({})
   const homework = location.state.homework
-  const [title,setTitle] = useState(homework.title)
-  const [description, setDescription] = useState(homework.description)
-  const [fullPoints, setFullPoints] = useState(homework.fullPoints)
-  const [dateLimit, setDateLimit] = useState(homework.dateLimit)
   const [files, setFiles] = useState([])
 
   const history = useHistory()
   const classID = localStorage.getItem('class_id')
   const userID = localStorage.getItem('userID')
+
+  /*async function handleDeleteAttachment(id) {
+
+        try{
+            await api.delete(`/attachment/${id}`)
+    
+            alert('Anexo deletado!')
+
+          }catch(err) {
+              alert('Erro ao deletar anexo')
+          }
+    }*/
 
   function handleSelectFiles(event) {
     if(!event.target.files) {
@@ -55,6 +66,21 @@ function Edit_Homework() {
         alert('Erro ao editar atividade')
     }
   }
+
+  /*useEffect(() => {
+        api.get(`especific-homework/${id}`, {
+
+        }).then(response => {
+            setHomework(response.data)
+        })
+    }, [id])*/
+
+  const [title,setTitle] = useState(homework.title)
+  const [description, setDescription] = useState(homework.description)
+  const [fullPoints, setFullPoints] = useState(homework.fullPoints)
+  const [dateLimit, setDateLimit] = useState(homework.dateLimit)
+
+  console.log(homework)
 
   return (
       <div className="Body-EditHome">

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {useLocation} from "react-router-dom";
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
+import anx from '../../images/anx.png';
 
 import './Info_Home.css'
 
@@ -73,7 +74,7 @@ function Information_Homework() {
 
     async function handleEditHomework(homework) {
         history.push({
-            pathname: '/editHomework',
+            pathname: `/editHomework/${homework.id}`,
             state: {homework}
         })
     }
@@ -139,6 +140,18 @@ function Information_Homework() {
                       <div class="div4-c1">
                           Anexos 
                       </div>
+
+                      <div class="anxList">
+                            {homework.attachments !== []?
+                                homework.attachments.map(attachment => (
+                                    <div>
+                                        <img id="imAnx" src={anx}/>
+                                        <button id="anxItem" onClick={()=> window.open(`http://localhost:3333/uploads/${attachment.path}`, "_blank")}>{attachment.path}</button> <br></br>
+                                        <span id="esp">{attachment.type}</span>
+                                    </div>
+                                ))
+                            :null}
+                        </div>
 
                 </div>
 
